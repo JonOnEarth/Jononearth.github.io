@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>机器学习知识点 | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">机器学习知识点</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">机器学习知识点</h1><div class="post-meta">Sep 2, 2018<span> | </span><span class="category"><a href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/09/02/机器学习知识点/" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#生成模型（generative-model）-VS-判别模型（discriminative-model）"><span class="toc-number">1.</span> <span class="toc-text">生成模型（generative model） VS 判别模型（discriminative model）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隐马尔可夫模型-Hidden-Markov-Model"><span class="toc-number">2.</span> <span class="toc-text">隐马尔可夫模型(Hidden Markov Model)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类器评价指标（metric）"><span class="toc-number">3.</span> <span class="toc-text">分类器评价指标（metric）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过拟合问题"><span class="toc-number">4.</span> <span class="toc-text">过拟合问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降了解多少"><span class="toc-number">5.</span> <span class="toc-text">梯度下降了解多少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lasso-Ridge"><span class="toc-number">6.</span> <span class="toc-text">Lasso, Ridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是共线性问题"><span class="toc-number">7.</span> <span class="toc-text">什么是共线性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哪些算法可以online-learning"><span class="toc-number">8.</span> <span class="toc-text">哪些算法可以online learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-boosting"><span class="toc-number">9.</span> <span class="toc-text">Gradient boosting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GBDT-vs-Random-forestes"><span class="toc-number">10.</span> <span class="toc-text">GBDT vs Random forestes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GMM-Gaussian-mixture-model"><span class="toc-number">11.</span> <span class="toc-text">GMM(Gaussian mixture model)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EM-算法"><span class="toc-number">12.</span> <span class="toc-text">EM 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM推导，对偶性的作用，核函数有哪些，有什么区别"><span class="toc-number">13.</span> <span class="toc-text">SVM推导，对偶性的作用，核函数有哪些，有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bp算法介绍，梯度弥散问题。"><span class="toc-number">14.</span> <span class="toc-text">bp算法介绍，梯度弥散问题。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然语言处理"><span class="toc-number">15.</span> <span class="toc-text">自然语言处理</span></a></li></ol></div></div><div class="post-content"><p>学习中遇到的一些知识点，简单整理一些。持续更新中。。。。</p>
+<h3 id="生成模型（generative-model）-VS-判别模型（discriminative-model）"><a href="#生成模型（generative-model）-VS-判别模型（discriminative-model）" class="headerlink" title="生成模型（generative model） VS 判别模型（discriminative model）"></a>生成模型（generative model） VS 判别模型（discriminative model）</h3><ul>
+<li><p>判别模型是直接学习$P(y/x)$,或者直接从特征空间学习类别标签</p>
+</li>
+<li><p>生成模型事假定数据满足一定的分布特征，需要学习$P(x/y)$  </p>
+</li>
+<li><p>优缺点：1，生成式模型都会对数据的分布做一定的假设, 比如朴素贝叶斯会假设在给定y的情况下各个特征之间是条件独立的，当数据满足这些假设时, 生成式模型通常需要较少的数据就能取得不错的效果, 但是当这些假设不成立时, 判别式模型会得到更好的效果。<br>2，生成式模型最终得到的错误率会比判别式模型高, 但是其需要更少的训练样本就可以使错误率收敛；3，生成式模型更容易拟合, 比如在朴素贝叶斯中只需要计下数就可以, 而判别式模型通常都需要解决凸优化问题；4， 生成式模型可以更好地利用无标签数据(比如DBN), 而判别式模型不可以；5，判别式模型可以对输入数据x进行预处理, 使用ϕ(x)来代替x, 如下图所示, 而生成式模型不是很方便进行替换（？）.<br><a href="https://blog.csdn.net/Fishmemory/article/details/51711114" target="_blank" rel="noopener">https://blog.csdn.net/Fishmemory/article/details/51711114</a><br><a href="http://www.cnblogs.com/kemaswill/p/3427422.html" target="_blank" rel="noopener">http://www.cnblogs.com/kemaswill/p/3427422.html</a></p>
+</li>
+</ul>
+<h3 id="隐马尔可夫模型-Hidden-Markov-Model"><a href="#隐马尔可夫模型-Hidden-Markov-Model" class="headerlink" title="隐马尔可夫模型(Hidden Markov Model)"></a>隐马尔可夫模型(Hidden Markov Model)</h3><h3 id="分类器评价指标（metric）"><a href="#分类器评价指标（metric）" class="headerlink" title="分类器评价指标（metric）"></a>分类器评价指标（metric）</h3><p>对于分类器，主要的评价指标有precision，recall，F-score，Accuracy以及ROC曲线,,AUC</p>
+<p>|   |         |预测的类|||<br>|:—–|:—-|:—-|:—|<br>|         |  |Yes|No|合计|<br>|实际的类|Yes|TP|FN|P|<br>|        |No|FP|TN|N|<br>|||P’|N’|||</p>
+<p>首先来解释一下表格中的术语：</p>
+<ol>
+<li>真正例/真阳性(True Positive, TP)：指被分类器正确分类的正元组。令TP为真正例的个数。</li>
+<li>真负例/真阴性(True Negative, TN)：指被分类器正确分类的负元组。令TN为真负例的个数。</li>
+<li>假正例/假阳性(False Positive, FP)：指被分类器错误标记为正元组的负元组。令FP为假正例的个数。</li>
+<li>假负例/假阴性(False Negative, FN)：指被分类器错误标记为负元组的正元组。令FN为假负例的个数。</li>
+<li>正元组数(Positive, P)：样本中实际的正元组数。</li>
+<li>负元组数(Negative, N)：样本中实际的负元组数。</li>
+<li>P’：被分类器分为正元组的样本数。</li>
+<li>N’：被分类器分为负元组的样本数。</li>
+<li>真正率(True Positive Rate , TPR)【灵敏度(sensitivity)】：$TPR = TP /(TP + FN)$ ，即正样本预测结果数/ 正样本实际数</li>
+<li>假负率(False Negative Rate , FNR) ：$FNR = FN /(TP + FN)$ ，即被预测为负的正样本结果数/正样本实际数</li>
+<li>假正率(False Positive Rate , FPR) ：$FPR = FP /(FP + TN)$ ，即被预测为正的负样本结果数 /负样本实际数</li>
+<li>真负率(True Negative Rate , TNR)【特指度(specificity)】：$TNR = TN /(TN + FP)$ ，即负样本预测结果数 / 负样本实际数</li>
+<li>精确度(Precision): $P = TP/(TP+FP)$ . 精度就是我选择的这一类就是正确的概率是多少。力求 识别出来的的视频中，绝大部分都不含色情视频，“宁放过大部分视频，不错一个视频含sex”</li>
+<li>召回率(Recall): R = TP/(TP+FN)，即真正率。召回率是选择的这一类是正确的，占实际总体的概率是多少。力求 在所有的病人中，都能识别出这些病人，“宁错诊有病，不放过一个真病”。</li>
+<li>F-score：查准率和查全率的调和平均值, 更接近于P, R两个数较小的那个: $F=2* P* R/(P + R)$</li>
+<li>准确率(Aaccuracy): 分类器对整个样本的判定能力,即将正的判定为正，负的判定为负: $A = (TP + TN)/(TP + FN + FP + TN)$</li>
+<li>ROC(Receiver Operating Characteristic):ROC的主要分析工具是一个画在ROC空间的曲线——ROC curve，横坐标为false positive rate(FPR)，纵坐标为true positive rate(TPR)。”In signal detection theory, a receiver operating characteristic (ROC), or simply ROC curve, is a graphical plot which illustrates the performance of a binary classifier system as <strong>its discrimination threshold</strong> is varied.””</li>
+<li>AUC（Area Under Curve）被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。使用AUC值作为评价标准是因为很多时候ROC曲线并不能清晰的说明哪个分类器的效果更好，而作为一个数值，对应AUC更大的分类器效果更好。<img src="/images/class_metric2.png" width = 100% height = 100% div align=center /></li>
+<li>为什么使用ROC曲线？<br>既然已经这么多评价标准，为什么还要使用ROC和AUC呢？因为ROC曲线有个很好的特性：当测试集中的正负样本的分布变化的时候,”<a href="https://www.quora.com/Why-do-we-use-ROC-curves" target="_blank" rel="noopener">AUC</a>. It is already computed by varying class priors. Does not get affected much by size of data in a particular class”.。在实际的数据集中经常会出现类不平衡(class imbalance)现象，即负样本比正样本多很多(或者相反)，而且测试数据中的正负样本的分布也可能随着时间变化.  还有一个就是可以随着阈值的变化。</li>
+</ol>
+<img src="/images/class_metric.png" width = 100% height = 100% div align=center />
+
+<p>reference:<br><a href="https://www.cnblogs.com/gatherstars/p/6084696.html" target="_blank" rel="noopener">https://www.cnblogs.com/gatherstars/p/6084696.html</a>   <a href="https://blog.csdn.net/pipisorry/article/details/51788927#commentBox" target="_blank" rel="noopener">https://blog.csdn.net/pipisorry/article/details/51788927#commentBox</a><br><a href="http://blog.sina.com.cn/s/blog_629e606f0102v7a0.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_629e606f0102v7a0.html</a>  </p>
+<h3 id="过拟合问题"><a href="#过拟合问题" class="headerlink" title="过拟合问题"></a>过拟合问题</h3><p>机器学习中发生过拟合的主要原因有：</p>
+<ol>
+<li>使用过于复杂的模型；</li>
+<li>数据噪声较大；</li>
+<li>训练数据少。</li>
+</ol>
+<p>由此对应的降低过拟合的方法有：</p>
+<ol>
+<li>简化模型假设，或者使用惩罚项限制模型复杂度；</li>
+<li>进行数据清洗，减少噪声；</li>
+<li>收集更多训练数据。</li>
+</ol>
+<h3 id="梯度下降了解多少"><a href="#梯度下降了解多少" class="headerlink" title="梯度下降了解多少"></a>梯度下降了解多少</h3><p>three variants of gradient descent, among which mini-batch gradient descent is the most popular：</p>
+<ol>
+<li>批量梯度下降（batch Grandient descent）. BGD 是梯度下降算法最原始的形式, 其特点是每次更新参数 ω 时, 都使用整个训练集的数据.</li>
+<li>随机梯度下降（stochastic grandient descent）.SGD 每次以一个样本, 而不是整个数据集来计算梯度.</li>
+<li>小批量梯度下降（mini-batch grandient descent）. MBGD 是为解决 BGD 与 SGD 各自缺点而发明的折中算法, 或者说它利用了 BGD 和 SGD 各自优点. 其基本思想是: 每次更新参数时, 使用 n 个样本, 既不是全部, 也不是 1. (SGD 可以看成是 n=1 的 MBGD 的一个特例)</li>
+</ol>
+<p>|梯度下降算法|    优点|    缺点|<br>|:—–|:—-|:—-|:—|<br>|BGD    |全局最优解    |计算量大, 迭代速度慢, 训练速度慢<br>|SGD    |1.训练速度快 2. 支持在线学习    |准确度下降, 有噪声, 非全局最优解|<br>|MBGD |1. 训练速度较快, 取决于小批量的数目  2. 支持在线学习    |准确度不如 BGD, 仍然有噪声, 非全局最优解</p>
+<p><a href="http://ruder.io/optimizing-gradient-descent/index.html#gradientdescentvariants" target="_blank" rel="noopener">Algorithms</a> that are most commonly used for optimizing SGD:</p>
+<ul>
+<li>Momentum.<br>当梯度与冲量方向一致时，冲量项会增加，而相反时，冲量项减少，因此冲量梯度下降算法可以减少训练的震荡过程</li>
+<li>Nesterov accelerated gradient.<br>NAG is a way to give our <strong>momentum</strong> term this kind of prescience. 对冲量梯度下降算法的改进版本，其速度更快。其变化之处在于计算“超前梯度”更新冲量项</li>
+<li>Adagrad.<br>It adapts the <strong>learning rate</strong> to the parameters, performing smaller updates (i.e. low learning rates) for parameters associated with frequently occurring features, and larger updates (i.e. high learning rates) for parameters associated with infrequent features. For this reason, it is well-suited for dealing with sparse data.</li>
+<li>Adadelta.<br>Adadelta is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Instead of accumulating all past squared gradients, Adadelta restricts the window of accumulated past gradients to some fixed size w.</li>
+<li>RMSprop<br>RMSprop and Adadelta have both been developed independently around the same time stemming from the need to resolve Adagrad’s radically diminishing learning rates.主要是解决学习速率过快衰减的问题。其实思路很简单，类似Momentum思想，引入一个超参数，在积累梯度平方项进行<a href="https://blog.csdn.net/u013709270/article/details/78667531" target="_blank" rel="noopener">衰减</a></li>
+<li>Adam<br>Adaptive Moment Estimation (Adam) [15] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients vt like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients mt, similar to momentum. Whereas momentum can be seen as a ball running down a slope, Adam behaves like a heavy ball with friction, which thus prefers flat minima in the error surface.<br>其结合了Momentum和RMSprop算法的思想。相比Momentum算法，其学习速率是自适应的，而相比RMSprop，其增加了冲量项。所以，Adam是两者的结合体.</li>
+</ul>
+<p>梯度下降需要关注的参数调参：</p>
+<ul>
+<li>学习率 learn rate $a$.</li>
+<li>学习率衰减 decay</li>
+<li>冲量 momentum</li>
+<li>参数初始值（常常random）</li>
+</ul>
+<p>references:<br><a href="http://kissg.me/2017/07/23/gradient-descent/" target="_blank" rel="noopener">http://kissg.me/2017/07/23/gradient-descent/</a><br><a href="http://ruder.io/optimizing-gradient-descent/index.html#gradientdescentvariants" target="_blank" rel="noopener">http://ruder.io/optimizing-gradient-descent/index.html#gradientdescentvariants</a><br><a href="https://www.cnblogs.com/pinard/p/5970503.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/5970503.html</a><br><a href="https://blog.csdn.net/u013709270/article/details/78667531" target="_blank" rel="noopener">https://blog.csdn.net/u013709270/article/details/78667531</a><br><a href="http://scikit-learn.org/stable/modules/sgd.html" target="_blank" rel="noopener">SGD,Sklearn中应用</a></p>
+<h3 id="Lasso-Ridge"><a href="#Lasso-Ridge" class="headerlink" title="Lasso, Ridge"></a>Lasso, Ridge</h3><blockquote>
+<p>然后针对L2范数 $\Phi \left ( w \right ) = \sum_{j=1}^{n}w_j^2 $ ，同样对它求导，得到梯度变化为 $∂Φ(w)/∂wj=2wj$ (一般会用$λ2$来把这个系数2给消掉)。同样的更新之后使得$wj$的值不会变得特别大。在机器学习中也将L2正则称为weight decay，在回归问题中，关于L2正则的回归还被称为Ridge Regression岭回归。weight decay还有一个好处，它使得目标函数变为凸函数，梯度下降法和L-BFGS都能收敛到全局最优解。——<a href="https://chenrudan.github.io/blog/2016/01/09/logisticregression.html#4.2" target="_blank" rel="noopener">逻辑回归L1与L2正则，L1稀疏，L2全局最优（凸函数梯度下降）</a></p>
+</blockquote>
+<blockquote>
+<p>Lasso回归和岭回归最重要的区别是，岭回归中随着惩罚项增加时，所以项都会减小，但是仍然保持非0的状态，然而Lasso回归中，随着惩罚项的增加时，越来越多的参数会直接变为0，正是这个优势使得lasso回归容易用作特征的选择（对应参数非0项），因此lasso回归可以说能很好的保留那些具有重要意义的特征而去掉那些那些意义不大甚至毫无意义的特征（如果是超多维的稀疏矩阵，这难道不是在垃圾中寻找黄金的“掘金术”吗？），而岭回归永远不会认为一个特征是毫无意义的。 —— <a href="https://blog.csdn.net/qq_34531825/article/details/52689654" target="_blank" rel="noopener">Spark2.0机器学习系列之12： 线性回归及L1、L2正则化区别与稀疏解</a></p>
+</blockquote>
+<blockquote>
+<p>正则化参数等价于对参数引入 先验分布，使得 模型复杂度 变小（缩小解空间），对于噪声以及outliers的鲁棒性增强（泛化能力）。整个最优化问题从贝叶斯观点来看是一种贝叶斯最大后验估计，其中 正则化项 对应后验估计中的 先验信息 ，损失函数对应后验估计中的似然函数，两者的乘积即对应贝叶斯最大后验估计的形式。——<a href="http://charleshm.github.io/2016/03/Regularized-Regression/" target="_blank" rel="noopener">Regularized Regression: A Bayesian point of view</a></p>
+</blockquote>
+<p>总结作用：</p>
+<ul>
+<li>解决共线性问题</li>
+<li>解决变量多于数据数的情况</li>
+<li>解决过拟合的问题，不至于使得参数取的过大，过小等问题</li>
+<li>解决选取特征（lasso）</li>
+</ul>
+<p>L1_lasso 优缺点：</p>
+<ul>
+<li>简化模型复杂度。因为引入参数的先验分布，拉普拉斯分布</li>
+<li>善于处理稀疏数据，选取有用特征</li>
+<li>缺点：处理速度快，但可能牺牲了一些准确性</li>
+</ul>
+<p>L2_Ridge 优缺点：</p>
+<ul>
+<li>简化模型复杂度，因为引入参数的先验分布，高斯分布</li>
+<li>解决logistic regression共线性问题。</li>
+<li>解决样本点比较少，而特征比较多，特征个数多于样本个数的情况。</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_34531825/article/details/52689654" target="_blank" rel="noopener">Spark2.0机器学习系列之12： 线性回归及L1、L2正则化区别与稀疏解</a></p>
+<p><a href="https://blog.csdn.net/kejiaming/article/details/64439664" target="_blank" rel="noopener">逻辑回归L1与L2正则，L1稀疏，L2全局最优（凸函数梯度下降）</a></p>
+<p><a href="https://www.zhihu.com/question/23536142/answer/90135994" target="_blank" rel="noopener">贝叶斯角度Regularized Regression: A Bayesian point of view</a></p>
+<p><a href="http://scikit-learn.org/stable/modules/linear_model.html#ridge-regression" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/linear_model.html#ridge-regression</a></p>
+<h3 id="什么是共线性问题"><a href="#什么是共线性问题" class="headerlink" title="什么是共线性问题"></a>什么是共线性问题</h3><p>共线性问题对线性回归模型有如下影响：</p>
+<ul>
+<li>参数的方差增大；</li>
+<li>难以区分每个解释变量的单独影响；</li>
+<li>变量的显著性检验失去意义；</li>
+<li>回归模型缺乏稳定性。样本的微小扰动都可能带来参数很大的变化；</li>
+<li>影响模型的泛化误差。</li>
+</ul>
+<p>共线性问题的解决方法:</p>
+<ul>
+<li>增加数据</li>
+<li>对模型施加某些约束条件（L2,L1）</li>
+<li>删除一个或几个共线变量</li>
+<li>将模型适当变形</li>
+<li>主成分回归，降维</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/ef1b27b8aee0?from=timeline" target="_blank" rel="noopener">讲讲共线性问题</a></p>
+<p><a href="https://blog.csdn.net/diyiziran/article/details/17025471" target="_blank" rel="noopener">多重共线性的产生原因、判别、检验、解决方法</a></p>
+<h3 id="哪些算法可以online-learning"><a href="#哪些算法可以online-learning" class="headerlink" title="哪些算法可以online learning"></a>哪些算法可以online learning</h3><h3 id="Gradient-boosting"><a href="#Gradient-boosting" class="headerlink" title="Gradient boosting"></a>Gradient boosting</h3><p><a href="http://www.cnblogs.com/willnote/p/6801496.html" target="_blank" rel="noopener">Gradient boosting</a></p>
+<h3 id="GBDT-vs-Random-forestes"><a href="#GBDT-vs-Random-forestes" class="headerlink" title="GBDT vs Random forestes"></a>GBDT vs Random forestes</h3><p>GBDT是计算每个模型训练后的残差<br><a href="https://blog.csdn.net/login_sonata/article/details/73929426" target="_blank" rel="noopener">随机森林和GBDT的区别</a></p>
+<h3 id="GMM-Gaussian-mixture-model"><a href="#GMM-Gaussian-mixture-model" class="headerlink" title="GMM(Gaussian mixture model)"></a>GMM(Gaussian mixture model)</h3><p>假设模型服从几个高斯分布相叠加结果。计算这个点属于每个模型的概率，哪个最大就是属于哪一类的。</p>
+<p>一个简单的解释：<br><a href="https://zhuanlan.zhihu.com/p/31103654" target="_blank" rel="noopener">一文详解高斯混合模型原理</a></p>
+<p>公式：高斯模型叠加<br>$$p(x)=\sum_{k=1}^{K}p(k)p(x|k)=\sum_{k=1}^{K}\phi_{k}N(x|\mu_{k},\varepsilon_{k})$$</p>
+<p>利用<a href="https://www.cnblogs.com/Gabby/p/5344658.html" target="_blank" rel="noopener">EM算法</a>来更新迭代数据，有三个数据需要更新，$\phi_{k}, \mu_{k}, \varepsilon_{k}$</p>
+<img src="/images/GMM.png" width = 80% height = 80% div align=center />
+
+<ul>
+<li>与Kmeans的<a href="https://blog.csdn.net/tingyue_/article/details/70739671" target="_blank" rel="noopener">关系</a>：<br>K-Means算法其实是GMM的EM解法在高斯分量协方差ϵI→0时的一个特例，GMM输出的是数据点属于每个每类的概率，我们用最大似然方法去确定分类。就严谨性来说，用概率进行描述数据点的分类，GMM显然要比K-mean好很多。<br>实际应用中，对于 K-means，我们通常是重复一定次数然后取最好的结果，但由于 GMM 每一次迭代的计算量比 K-means 要大许多，使用GMM时，一个更流行的做法是先用 K-means （已经重复并取最优值了）得到一个粗略的结果，然后将其作为初值（只要将 K-means 所得的 聚类中心传给 GMM即可），再用 GMM 进行细致迭代。</li>
+</ul>
+<p>Reference:<br><a href="https://blog.csdn.net/jinping_shi/article/details/59613054" target="_blank" rel="noopener">高斯混合模型（GMM）及其EM算法的理解</a><br><a href="https://blog.csdn.net/llp1992/article/details/47058109" target="_blank" rel="noopener">https://blog.csdn.net/llp1992/article/details/47058109</a><br><a href="https://blog.csdn.net/tingyue_/article/details/70739671" target="_blank" rel="noopener">https://blog.csdn.net/tingyue_/article/details/70739671</a></p>
+<h3 id="EM-算法"><a href="#EM-算法" class="headerlink" title="EM 算法"></a>EM 算法</h3><p>数学原理：<br>求被选到的概率最大。</p>
+<p><a href="http://blog.51cto.com/9269309/1892833" target="_blank" rel="noopener">http://blog.51cto.com/9269309/1892833</a><br><a href="https://blog.csdn.net/linyanqing21/article/details/50939009" target="_blank" rel="noopener">https://blog.csdn.net/linyanqing21/article/details/50939009</a></p>
+<h3 id="SVM推导，对偶性的作用，核函数有哪些，有什么区别"><a href="#SVM推导，对偶性的作用，核函数有哪些，有什么区别" class="headerlink" title="SVM推导，对偶性的作用，核函数有哪些，有什么区别"></a>SVM推导，对偶性的作用，核函数有哪些，有什么区别</h3><p>确定下界 最大化</p>
+<p><a href="https://www.cnblogs.com/xxrxxr/p/7536131.html" target="_blank" rel="noopener">关于SVM数学细节逻辑的个人理解（二）：从基本形式转化为对偶问题</a></p>
+<p><a href="http://www.hanlongfei.com/convex/2015/11/05/duality/" target="_blank" rel="noopener">http://www.hanlongfei.com/convex/2015/11/05/duality/</a></p>
+<p><a href="https://blog.csdn.net/Sunshine_in_Moon/article/details/51321461" target="_blank" rel="noopener">https://blog.csdn.net/Sunshine_in_Moon/article/details/51321461</a></p>
+<p><a href="https://www.zhihu.com/question/58584814" target="_blank" rel="noopener">https://www.zhihu.com/question/58584814</a></p>
+<h3 id="bp算法介绍，梯度弥散问题。"><a href="#bp算法介绍，梯度弥散问题。" class="headerlink" title="bp算法介绍，梯度弥散问题。"></a>bp算法介绍，梯度弥散问题。</h3><h3 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h3><p>以后如果有机会多学下NLP的话，就专门写一片自然语言教程。<br>先记下一些看过的非常好的教程。<br><a href="http://www.sohu.com/a/221418079_817016" target="_blank" rel="noopener">一文读懂自然语言处理（NLP）入门学习要点</a><br><a href="https://www.jiqizhixin.com/articles/081203?from=synced&keyword=%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86" target="_blank" rel="noopener">自然语言处理是如何工作的？一步步教你构建 NLP 流水线</a></p>
+</div><div class="tags"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></div><div class="post-nav"><a class="pre" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a><a class="next" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/09/02/机器学习知识点/';
+    this.page.identifier = '2018/09/02/机器学习知识点/';
+    this.page.title = '机器学习知识点';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

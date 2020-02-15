@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>python 小抄 | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">python 小抄</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">python 小抄</h1><div class="post-meta">May 8, 2018<span> | </span><span class="category"><a href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/05/08/python-cheatsheet1/" href="/2018/05/08/python-cheatsheet1/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些很有用的参考资料"><span class="toc-number">1.</span> <span class="toc-text">一些很有用的参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">2.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表lists"><span class="toc-number">3.</span> <span class="toc-text">列表lists</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Numpy-与-list-简单对比"><span class="toc-number">3.1.</span> <span class="toc-text">Numpy 与 list 简单对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字典-Dictionaries"><span class="toc-number">4.</span> <span class="toc-text">字典 Dictionaries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套"><span class="toc-number">5.</span> <span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类class"><span class="toc-number">6.</span> <span class="toc-text">类class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件读取和写入"><span class="toc-number">7.</span> <span class="toc-text">文件读取和写入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python前面加星号和双星号"><span class="toc-number">8.</span> <span class="toc-text">python前面加星号和双星号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-除法"><span class="toc-number">9.</span> <span class="toc-text">python 除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#self-in-python"><span class="toc-number">10.</span> <span class="toc-text">self in python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-数据类型转换-dtype"><span class="toc-number">11.</span> <span class="toc-text">python 数据类型转换 dtype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python一些函数"><span class="toc-number">12.</span> <span class="toc-text">python一些函数</span></a></li></ol></div></div><div class="post-content"><table>
+<thead>
+<tr>
+<th align="left">列表</th>
+<th align="left">元组</th>
+<th align="left">集合</th>
+<th align="left">字典</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">英文</td>
+<td align="left">list</td>
+<td align="left">tuple</td>
+<td align="left">set</td>
+</tr>
+<tr>
+<td align="left">可否读写</td>
+<td align="left">读写</td>
+<td align="left">只读</td>
+<td align="left">读写</td>
+</tr>
+<tr>
+<td align="left">可否重复</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="left">存储方式</td>
+<td align="left">值</td>
+<td align="left">值</td>
+<td align="left">键(不能重复)</td>
+</tr>
+<tr>
+<td align="left">是否有序</td>
+<td align="left">有序</td>
+<td align="left">有序</td>
+<td align="left">无序</td>
+</tr>
+<tr>
+<td align="left">初始化</td>
+<td align="left">[1,’a’]</td>
+<td align="left">(‘a’, 1)</td>
+<td align="left">set([1,2]) 或 {1,2}</td>
+</tr>
+<tr>
+<td align="left">添加</td>
+<td align="left">append</td>
+<td align="left">只读</td>
+<td align="left">add</td>
+</tr>
+<tr>
+<td align="left">读元素</td>
+<td align="left">l[2:]</td>
+<td align="left">t[0]</td>
+<td align="left">无</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">字符串’string’</th>
+<th align="left">列表[lists]</th>
+<th align="left">元组(Tuples)</th>
+<th align="left">字典{dictionaries}</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">字符串连接：firstname=’jon’, lastname=’earth’, fullname = firstname + lastname</td>
+<td align="left">创建一个列表：planets = [‘Earth’, ‘Mars’, ‘Jupiter’]</td>
+<td align="left">元组类似lists,但其中元素不能被操作：dimensions=(1920, 1080)</td>
+<td align="left">一个简单的字典 alien = {‘color’:’green’,’planet’:’Mars’}</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">获取列表元素：home = planets[0]</td>
+<td align="left">dimensions[0]=1920</td>
+<td align="left">取得字典中的keyvalue,如 alien[‘color’]  输出 green</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">列表切片 planets.append(‘Saturn’)</td>
+<td align="left"></td>
+<td align="left">加入一个新的键值(key为x_positon, value为0)  alien[‘x_position’] = 0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">遍历所有的键值(key-value)  for name, number in fav_numbers.items():</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">遍历所有的“键”(key)  for name in fav_numbers.keys()：</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">遍历所有的“值”(value)  for number in fav_numbers.values()：</td>
+</tr>
+</tbody></table>
+<h2 id="一些很有用的参考资料"><a href="#一些很有用的参考资料" class="headerlink" title="一些很有用的参考资料"></a>一些很有用的参考资料</h2><ul>
+<li><a href="http://pythontutor.com/" target="_blank" rel="noopener">VISUALIZE CODE AND GET LIVE HELP</a><br>可视化你的code, 帮助你理解</li>
+<li><a href="https://www.cnblogs.com/soaringEveryday/p/5044007.html" target="_blank" rel="noopener">python中 list, tuple，dict, set的用法</a></li>
+<li><a href="https://blog.csdn.net/lilongsy/article/details/70895753" target="_blank" rel="noopener">Python列表、元组、集合、字典的区别和相互转换</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PythonForDataScience.pdf" target="_blank" rel="noopener">Lists小抄和Numpy</a></li>
+</ul>
+<hr>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>set就像是把Dict中的key抽出来了一样，类似于一个List，但是内容又不能重复，通过调用set()方法创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set([3,6,3]) or</span><br><span class="line">   &#123;3,6,3&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>嵌套tuple<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s &#x3D; set([(&#39;Adam&#39;, 95), (&#39;Lisa&#39;, 85), (&#39;Bart&#39;, 59)])</span><br><span class="line">#tuple</span><br><span class="line">for x in s:</span><br><span class="line">    print x[0],&#39;:&#39;,x[1]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Lisa : 85</span><br><span class="line">Adam : 95</span><br><span class="line">Bart : 59</span><br></pre></td></tr></table></figure></li>
+<li>通过add和remove来添加、删除元素（保持不重复），添加元素时，用set的add()方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s &#x3D; set([1, 2, 3])</span><br><span class="line">&gt;&gt;&gt; s.add(4)</span><br><span class="line">&gt;&gt;&gt; print s</span><br><span class="line">set([1, 2, 3, 4])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s &#x3D; set([1, 2, 3, 4])</span><br><span class="line">&gt;&gt;&gt; s.remove(4)</span><br><span class="line">&gt;&gt;&gt; print s</span><br><span class="line">set([1, 2, 3])</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="列表lists"><a href="#列表lists" class="headerlink" title="列表lists"></a>列表lists</h2><ul>
+<li>lists中嵌套lists<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list2 &#x3D; [[4,5,6,7], [3,4,5,6]]</span><br><span class="line">my_list2[1][:2]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Numpy-与-list-简单对比"><a href="#Numpy-与-list-简单对比" class="headerlink" title="Numpy 与 list 简单对比"></a>Numpy 与 list 简单对比</h3><ul>
+<li>Numpy Arrarys<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_list &#x3D; [1, 2, 3, 4]</span><br><span class="line">my_array &#x3D; np.array(my_list)</span><br><span class="line">my_2darray &#x3D; np.array([[1,2,3],[4,5,6]])</span><br></pre></td></tr></table></figure></li>
+<li>取其中的元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Subset</span><br><span class="line">my_array[1]  # select item at index 1</span><br><span class="line">&gt;&gt;&gt; 2</span><br><span class="line"></span><br><span class="line"># slice</span><br><span class="line">my_array[0:2]</span><br><span class="line">&gt;&gt;&gt;array([1, 2])  # selcet items at index 0 and 1</span><br><span class="line"></span><br><span class="line"># Subset 2D Numpy arrays</span><br><span class="line">my_2darray[:,0]</span><br><span class="line">&gt;&gt;&gt;arrary([1,4])  # my_2darray[rows, columns]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="字典-Dictionaries"><a href="#字典-Dictionaries" class="headerlink" title="字典 Dictionaries"></a>字典 Dictionaries</h2><ul>
+<li>使用key来访问value 2种方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alien_0 &#x3D; &#123;&#39;color&#39;: &#39;green&#39;, &#39;points&#39;:5&#125;</span><br><span class="line">print(alien_0[&#39;color&#39;])</span><br><span class="line">print(alien_0[&#39;points&#39;])</span><br><span class="line"></span><br><span class="line">alien_color &#x3D; alien_0.get(&#39;color&#39;)</span><br></pre></td></tr></table></figure></li>
+<li>增加一个键值对<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alien_0 &#x3D; &#123;&#39;color&#39;: &#39;green&#39;, &#39;points&#39;: 5&#125;</span><br><span class="line">alien_0[&#39;x&#39;] &#x3D; 0</span><br><span class="line">alien_0[&#39;y&#39;] &#x3D; 25</span><br><span class="line">alien_0[&#39;speed&#39;] &#x3D; 1.5</span><br></pre></td></tr></table></figure></li>
+<li>删除一个键值对<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del alien_0[&#39;points&#39;]</span><br></pre></td></tr></table></figure></li>
+<li>Dict的合并<ul>
+<li>方法1：可以用dict函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d1 &#x3D; &#123;&#39;mike&#39;:12, &#39;jack&#39;:19&#125;</span><br><span class="line">d2 &#x3D; &#123;&#39;jone&#39;:22, &#39;ivy&#39;:17&#125;</span><br><span class="line">dMerge &#x3D; dict(d1.items() + d2.items())</span><br><span class="line">print dMerge</span><br><span class="line">&gt;&gt;&gt;&#123;&#39;mike&#39;: 12, &#39;jack&#39;: 19, &#39;jone&#39;: 22, &#39;ivy&#39;: 17&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法2：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dMerge2 &#x3D; dict(d1, **d2)</span><br><span class="line">print dMerge2</span><br><span class="line">&gt;&gt;&gt;&#123;&#39;mike&#39;: 12, &#39;jack&#39;: 19, &#39;jone&#39;: 22, &#39;ivy&#39;: 17&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法2比方法1速度快很多，方法2等同于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dMerge3 &#x3D; dict(d1)</span><br><span class="line">dMerge3.update(d2)</span><br><span class="line">print dMerge</span><br><span class="line">&gt;&gt;&gt;&#123;&#39;mike&#39;: 12, &#39;jack&#39;: 19, &#39;jone&#39;: 22, &#39;ivy&#39;: 17&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><ol>
+<li><p>字典嵌套在列表中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Start with anempty list.</span><br><span class="line">users &#x3D; []</span><br><span class="line"># Make a new user, and add them to the list.</span><br><span class="line">new_user &#x3D; &#123;    </span><br><span class="line">  &#39;last&#39;: &#39;fermi&#39;,   </span><br><span class="line">  &#39;first&#39;: &#39;enrico&#39;,  </span><br><span class="line">  &#39;username&#39;: &#39;efermi&#39;,</span><br><span class="line">   &#125;</span><br><span class="line">users.append(new_user)</span><br><span class="line"></span><br><span class="line"> # Make another new user, and add them as well.</span><br><span class="line">new_user &#x3D; &#123;   </span><br><span class="line">   &#39;last&#39;: &#39;curie&#39;,  </span><br><span class="line">  &#39;first&#39;: &#39;marie&#39;,   </span><br><span class="line">  &#39;username&#39;: &#39;mcurie&#39;,    &#125;</span><br><span class="line">users.append(new_user)</span><br><span class="line"></span><br><span class="line"> # Show all information about each user.</span><br><span class="line">for user_dict in users:    </span><br><span class="line">    for k, v in user_dict.items():</span><br><span class="line">        print(k + &quot;: &quot; + v)   </span><br><span class="line">    print(&quot;\n&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表嵌套在字典中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fav_languages &#x3D; &#123;</span><br><span class="line">      &#39;jen&#39;: [&#39;python&#39;, &#39;ruby&#39;],</span><br><span class="line">      &#39;sarah&#39;: [&#39;c&#39;],  </span><br><span class="line">      &#39;edward&#39;: [&#39;ruby&#39;, &#39;go&#39;],</span><br><span class="line">      &#39;phil&#39;: [&#39;python&#39;, &#39;haskell&#39;],</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # Show all responses for each person.</span><br><span class="line">    for name, langs in fav_languages.items():</span><br><span class="line">         print(name + &quot;: &quot;)</span><br><span class="line">         for lang in langs:</span><br><span class="line">             print(&quot;-&quot; + lang)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字典嵌套在字典中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">users &#x3D; &#123;</span><br><span class="line">  &#39;aeinstein&#39;: &#123;</span><br><span class="line">        &#39;first&#39;: &#39;albert&#39;,</span><br><span class="line">        &#39;last&#39;: &#39;einstein&#39;,</span><br><span class="line">        &#39;location&#39;: &#39;princeton&#39;,&#125;,</span><br><span class="line">  &#39;mcurie&#39;: &#123;</span><br><span class="line">        &#39;first&#39;: &#39;marie&#39;，</span><br><span class="line">        &#39;last&#39;: &#39;curie&#39;,  </span><br><span class="line">        &#39;location&#39;: &#39;paris&#39;,&#125;,</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"> for username, user_dict in users.items():</span><br><span class="line">     print(&quot;\nUsername: &quot; + username)</span><br><span class="line">     full_name &#x3D; user_dict[&#39;first&#39;] + &quot; &quot;</span><br><span class="line">     full_name +&#x3D; user_dict[&#39;last&#39;]</span><br><span class="line">     location &#x3D; user_dict[&#39;location&#39;]</span><br><span class="line">     print(&quot;\tFull name: &quot; + full_name.title())</span><br><span class="line">     print(&quot;\tLocation: &quot; + location.title())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元组tuple嵌套在列表list中</p>
+</li>
+<li><p>list嵌套在tuple中</p>
+</li>
+</ol>
+<h2 id="类class"><a href="#类class" class="headerlink" title="类class"></a>类class</h2><p>todo</p>
+<h2 id="文件读取和写入"><a href="#文件读取和写入" class="headerlink" title="文件读取和写入"></a>文件读取和写入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f_path &#x3D; &quot;C:\Users\ehmatthes\books\alice.txt&quot;</span><br><span class="line"></span><br><span class="line">with open(f_path) as f_obj:</span><br><span class="line">  lines &#x3D; f_obj.readlines()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filename &#x3D; &#39;programming.txt&#39;</span><br><span class="line"># overwirte文件</span><br><span class="line">with open(filename, &#39;w&#39;) as f:</span><br><span class="line">   f.write(&quot;I love programming!&quot;)</span><br><span class="line"># 添加到文件末尾</span><br><span class="line">with open(filename, &#39;w&#39;) as f:</span><br><span class="line">f.write(&quot;I love programming!&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="python前面加星号和双星号"><a href="#python前面加星号和双星号" class="headerlink" title="python前面加星号和双星号"></a>python前面加星号和双星号</h2><h2 id="python-除法"><a href="#python-除法" class="headerlink" title="python 除法"></a>python 除法</h2><p><a href="https://blog.csdn.net/GarfieldEr007/article/details/51304068" target="_blank" rel="noopener">Python中的除法 整除 非整除</a></p>
+<h2 id="self-in-python"><a href="#self-in-python" class="headerlink" title="self in python"></a>self in python</h2><p>首先明确的是self只有在类的方法中才会有，独立的函数或方法是不必带有self的。self在定义类的方法时是必须有的，虽然在调用时不必传入相应的参数。</p>
+<p>self名称不是必须的，在python中self不是关键词，你可以定义成a或b或其它名字都可以,但是约定成俗（为了和其他编程语言统一，减少理解难度），不要搞另类，大家会不明白的。</p>
+<p>下例中将self改为myname一样没有错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">    def _init_(myname,name):</span><br><span class="line">        myname.name&#x3D;name</span><br><span class="line">    def sayhello(myname):</span><br><span class="line">        print &#39;My name is:&#39;,myname.name</span><br><span class="line">p&#x3D;Person(&#39;Bill&#39;)</span><br><span class="line">print p</span><br></pre></td></tr></table></figure>
+<p>self指的是类实例对象本身(注意：不是类本身)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">    def _init_(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">    def sayhello(self):</span><br><span class="line">        print &#39;My name is:&#39;,self.name</span><br><span class="line">p1&#x3D;Person(&#39;Bill&#39;)</span><br><span class="line">p2 &#x3D; Person(&#39;Apple&#39;)</span><br><span class="line">print p1</span><br></pre></td></tr></table></figure>
+<p>如果self指向类本身，那么当有多个实例对象时，self指向哪一个呢？</p>
+<p>总结:</p>
+<ul>
+<li>self在定义时需要定义，但是在调用时会自动传入。</li>
+<li>self的名字并不是规定死的，但是最好还是按照约定是用self</li>
+<li>self总是指调用时的类的实例。</li>
+</ul>
+<p>转载自：<a href="https://www.cnblogs.com/chownjy/p/8663024.html" target="_blank" rel="noopener">Python类中的self到底是干啥的</a></p>
+<h2 id="python-数据类型转换-dtype"><a href="#python-数据类型转换-dtype" class="headerlink" title="python 数据类型转换 dtype"></a>python 数据类型转换 dtype</h2><p>b = a.astype(int)<br><a href="https://www.cnblogs.com/hhh5460/p/5129032.html" target="_blank" rel="noopener">https://www.cnblogs.com/hhh5460/p/5129032.html</a></p>
+<h2 id="python一些函数"><a href="#python一些函数" class="headerlink" title="python一些函数"></a>python一些函数</h2><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">解释</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="http://www.runoob.com/python/python-func-zip.html" target="_blank" rel="noopener">zip(a,b)</a></td>
+<td align="left">把两个list中对应的元素打包成元组，返回list</td>
+<td align="left">a = [1,2,3],b = [4,5,6], zipped = zip(a,b)     # 打包为元组的列表 out: [(1, 4), (2, 5), (3, 6)]</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.yiibai.com/python/number_randrange.html" target="_blank" rel="noopener">randrange(1,100,2)</a></td>
+<td align="left">randomly select  an odd number between 0~100</td>
+<td align="left">randrange ([start,] stop [,step])</td>
+</tr>
+<tr>
+<td align="left"><a href="http://www.revotu.com/matrix-transpose-in-python.html" target="_blank" rel="noopener">Python矩阵转置方法</a></td>
+<td align="left">先用zip并行迭代每一个列表元素，然后再用map将结果中的元组转成列表。</td>
+<td align="left">list(map(list, zip(*matrix)))</td>
+</tr>
+<tr>
+<td align="left">list.append()</td>
+<td align="left"></td>
+<td align="left">list1 = [‘C++’, ‘Java’, ‘Python’], list1.append(‘C#’), print (“updated list : “, list1) output: pdated list :  [‘C++’, ‘Java’, ‘Python’, ‘C#’]</td>
+</tr>
+<tr>
+<td align="left"><a href="https://blog.csdn.net/weixin_35955795/article/details/52448345" target="_blank" rel="noopener">matrix.count(3)</a></td>
+<td align="left">count() 方法用于统计某个元素在列表中出现的次数</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</div><div class="tags"><a href="/tags/python/">python</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a></div><div class="post-nav"><a class="pre" href="/2018/05/09/Numpy-%E5%B0%8F%E6%8A%84/">Numpy 小抄</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/05/08/python-cheatsheet1/';
+    this.page.identifier = '2018/05/08/python-cheatsheet1/';
+    this.page.title = 'python 小抄';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

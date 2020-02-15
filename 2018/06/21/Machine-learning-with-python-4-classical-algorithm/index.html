@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>Machine learning with python(4)_classical algorithm(持续跟新) | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Machine learning with python(4)_classical algorithm(持续跟新)</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Machine learning with python(4)_classical algorithm(持续跟新)</h1><div class="post-meta">Jun 21, 2018<span> | </span><span class="category"><a href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/06/21/Machine-learning-with-python-4-classical-algorithm/" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降算法"><span class="toc-number">1.</span> <span class="toc-text">梯度下降算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#极大似然估计"><span class="toc-number">2.</span> <span class="toc-text">极大似然估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linear-Regression"><span class="toc-number">3.</span> <span class="toc-text">Linear Regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logistic-Regression"><span class="toc-number">4.</span> <span class="toc-text">Logistic Regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Naive-Bayes"><span class="toc-number">5.</span> <span class="toc-text">Naive Bayes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-Tree"><span class="toc-number">6.</span> <span class="toc-text">Decision Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM"><span class="toc-number">7.</span> <span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kernal"><span class="toc-number">7.1.</span> <span class="toc-text">kernal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KNN"><span class="toc-number">8.</span> <span class="toc-text">KNN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kmeans-无监督学习"><span class="toc-number">9.</span> <span class="toc-text">Kmeans 无监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各个算法的优缺点"><span class="toc-number">10.</span> <span class="toc-text">各个算法的优缺点</span></a></li></ol></div></div><div class="post-content"><p>系列教程4，主要是几个classical的机器学习算法。</p>
+<p>参考的资源有：<br>吴恩达机器学习课程笔记（需要的可以留下邮箱）<br>Udacity 机器学习工程师<br>以及文中各种blog链接  </p>
+<h2 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h2><p>讲的很好的一个<br><a href="https://www.jianshu.com/p/c7e642877b0e" target="_blank" rel="noopener">深入浅出–梯度下降法及其实现</a></p>
+<p>随机梯度和batch梯度的区别：随机梯度更新一个数据，有时不易收敛，收敛结果波动。而batch一次需要样本多，耗时，尽管收敛效果更好。</p>
+<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p><a href="https://www.jianshu.com/p/f1d3906e4a3e" target="_blank" rel="noopener">深入浅出最大似然估计</a></p>
+<p>最大似然估计是利用已知的样本的结果，在使用某个模型的基础上，反推最有可能导致这样结果的模型参数值。</p>
+<p>当这个正态分布的期望为多少时，产生这个采样数据的概率为最大？</p>
+<h2 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h2><p>简单来说就是用 y=ax+b 去拟合得到最好的a和b。怎么得到最好的a,b呢？用cost function 去寻找这个最佳的参数。<br>cost function 公式：mean quare error.</p>
+<p>然后求这个cost function 的梯度值，下降到最小的梯度值时，那么就得到了最佳参数。</p>
+<img src="/images/linear regression1.png" width = 50% height = 50% div align=center />
+
+<p><a href="https://blog.csdn.net/qq_19645269/article/details/78127785" target="_blank" rel="noopener">公式推导，西瓜书</a><br>这里注意。在推导过程中，很容易遇到矩阵不是满秩矩阵的情况，这个时候需要加上正则化项，L1,L2。具体参考<a href="http://jononearth.com/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/#Lasso-Ridge">note</a></p>
+<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p>事实上，逻辑回归是一个分类算法，之所以这样弄，是因为逻辑回顾应用了线性回归类似的方法，只是增加了一个sigmod层。<br>事实上，logical regression是仅含有一个神经元的单层的神经网络。<br><img src="/images/logical regression.png" width = 90% height = 90% div align=center /></p>
+<p>因为加入sigmod函数，使得结果在0~1之间，把它当成概率，$\phi (z)$ 可以视为类1的后验估计，所以可以写成：<br>$$P(y=1\mid x;w) = \phi(w^{T}x+b)=\phi(z)$$<br>$$P(y=0\mid x;w) =1- \phi(z)$$</p>
+<p>一般形式： $$P(y\mid x;w)=\phi(z)^y(1-\phi(z))^{(1-y)}$$</p>
+<p>极大似然：$$L(w)=\prod_{i=1}^{n}p(y^{i}\mid x^{i};w)=\phi(z)^y(1-\phi(z))^{(1-y)}$$</p>
+<p>然后log取导数，sigmod函数有一个很好的性质$$\phi{(z)}=\phi(z)(1-\phi(z))$$</p>
+<p>求导具体过程参考以下。最后得出更新公式。</p>
+<p>参考：<a href="https://blog.csdn.net/zjuPeco/article/details/77165974" target="_blank" rel="noopener">逻辑回归(logistic regression)的本质——极大似然估计</a><br><a href="https://blog.csdn.net/kejiaming/article/details/64439664" target="_blank" rel="noopener">逻辑回归L1与L2正则，L1稀疏，L2全局最优（凸函数梯度下降)</a></p>
+<p>Softmax regression其实是多维的Logistic regression，它其实可以看做是单层多个神经元的神经网络！<br><img src="/images/softmax regression.png" width = 60% height = 60% div align=center /></p>
+<p>参考：<a href="https://blog.csdn.net/tz_zs/article/details/79069499" target="_blank" rel="noopener">逻辑回归和神经网络之间有什么关系？</a></p>
+<h2 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h2><p>知道先验概率，知道条件概率，然后根据贝叶斯公式，知道后验概率是多少。多用于分类。全概率公式展开 $$[p(y=c_{k}|x)=\frac{\prod_{i=1}^{M}p(x^{i}|y=c_{k})p(y=c_{k})}{\sum_{k}p(y=c_{k})\prod_{i=1}^{M}p(x^{i}|y=c_{k})}]$$</p>
+<p>例子：<a href="https://blog.csdn.net/u013634684/article/details/49669081" target="_blank" rel="noopener">朴素贝叶斯算法之过滤垃圾邮件</a><br>非常好多解释资源，可以帮助你理解贝叶斯，及文本分类。</p>
+<p>有三个延申的贝叶斯：<br>[G]aussian Naive Bayes Classifie](<a href="https://chrisalbon.com/machine_learning/naive_bayes/gaussian_naive_bayes_classifier/" target="_blank" rel="noopener">https://chrisalbon.com/machine_learning/naive_bayes/gaussian_naive_bayes_classifier/</a>), 条件概率的部分变成是高斯分布PDF分布形式。  </p>
+<p><a href="https://chrisalbon.com/machine_learning/naive_bayes/multinomial_naive_bayes_classifier/" target="_blank" rel="noopener">Multinomial Naive Bayes Classifier</a>,当我们数据是离散的数据时，用这个</p>
+<p><a href="https://chrisalbon.com/machine_learning/naive_bayes/bernoulli_naive_bayes_classifier/" target="_blank" rel="noopener">Bernoulli Naive Bayes Classifier</a> The Bernoulli naive Bayes classifier assumes that all our features are binary such that they take only two values (e.g. a nominal categorical feature that has been one-hot encoded).</p>
+<h2 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h2><p>一堆数据给你，你怎么分类呢。计算这堆数据的entropy(熵)，计算公式是这样的：$$[entropy = - \sum_{i=1}^{n} p_i log_{2} p_i]$$<br><img src="/images/decision tree.png" width = 100% height = 100% div align=center /></p>
+<p>可从图上看出，画第1条线的时候，我们就计算画什么位置，两边的entropy最小。<br>然后用 Entropy(前)-Entropy(后)=信息增益。信息增益越大，说明分的越正确。</p>
+<p>一个例子：</p>
+<iframe width="754" height="400" src="https://www.youtube.com/embed/3FgJOpKfdY8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>但是用信息增益的算法（ID3算法），缺点是信息增益偏向取值较多的特征。</p>
+<p>C4.5决策树的提出完全是为了解决ID3决策树的一个缺点，当一个属性的可取值数目较多时，那么可能在这个属性对应的可取值下的样本只有一个或者是很少个，那么这个时候它的信息增益是非常高的，这个时候纯度很高，ID3决策树会认为这个属性很适合划分，但是较多取值的属性来进行划分带来的问题是它的泛化能力比较弱，不能够对新样本进行有效的预测。</p>
+<p>具体公式查看下面链接。但是C4.5的缺点是偏向取值较少的特征。</p>
+<p>还有一个基尼指数,CART算法。Cart提出了根据基尼系数划分，同时，它的树限定为二叉树，更容易解释，还能处理连续值。<a href="https://chrisalbon.com/machine_learning/trees_and_forests/decision_tree_classifier/" target="_blank" rel="noopener">参见</a></p>
+<p>Further reading:<br><a href="https://www.cnblogs.com/muzixi/p/6566803.html" target="_blank" rel="noopener">决策树–信息增益，信息增益比，Geni指数的理解</a><br><a href="https://www.cnblogs.com/coder2012/p/4508602.html" target="_blank" rel="noopener">决策树</a></p>
+<p>Random forests: 用决策树容易overfitting, 几次随机选取几列进行训练，最后voting得到最佳的结果。</p>
+<iframe width="754" height="400" src="https://www.youtube.com/embed/n5DhXhcYKcw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><p>SVM 是为了使分类边界的距离（Margin）最大化, $[M = \frac{2}{\left | x \right |}]$，并且分类的错误率最低。它的loss function 包括两个部分，$classification error + Margin error$. 其中 $margin error = 1/2*||w||^2$。所以这个loss function形式很像是一般的error 加上了一个 L2(Ridge) punishment。两个error是一个tradeoff的过程，想要更好准确率，加大C，如果想要更大的margin，减小C。</p>
+<p>$$[min\frac{1}{2}\left | w \right |^{2}+C\sum_{i=1}^{R}\varepsilon_{i} , s.t.,y_{i}(w^{T}x_{i}+b)\geq 1-\varepsilon_{i},\varepsilon_{i}\geq 0]<br>$$</p>
+<iframe width="754" height="400" src="https://www.youtube.com/embed/nWGVAGXwvGE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="754" height="400" src="https://www.youtube.com/embed/dSac8Gfgbok" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="754" height="400" src="https://www.youtube.com/embed/A1wbrcSYc1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+<h3 id="kernal"><a href="#kernal" class="headerlink" title="kernal"></a>kernal</h3><p>在二维的情况下，用一条直线把两边数据分类。如果不可分的时候，通过核函数（Kernel）转换，找到一个超平面（hyper-plane）来分类。<br><img src="/images/SVM_4.webp" width = 70% height = 70% div align=center /><br><img src="/images/SVM_8.webp" width = 40% height = 40% div align=center /><img src="/images/SVM_9.webp" width = 40% height = 40% div align=center /></p>
+<ul>
+<li><p>polynomial kernal: (x,y) —-&gt;(x,y,xy,x^2,y^2)</p>
+</li>
+<li><p>RBF kernal: 移动每一个point到山range, 要想很好的区分出二类，得找到合适mountain weights. 怎么找呢？  </p>
+<img src="/images/RBF1.png" width = 80% height = 80% div align=center />
+
+<iframe width="754" height="400" src="https://www.youtube.com/embed/xdkIulxXWfQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>找到之后，把点利用高斯分布 lift 到高维。</p>
+<p>参数$\gamma $，越大越窄；越小越宽：   </p>
+<<iframe width="754" height="400" src="https://www.youtube.com/embed/DctkE8kaWPY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+</li>
+</ul>
+<p>讲svm比较好的资源如下：<br>第一版本：Margin方式：<a href="http://www.cnblogs.com/LeftNotEasy/archive/2011/05/02/basic-of-svm.html" target="_blank" rel="noopener">支持向量机基础</a><br>第二版本：cost function方式：<a href="https://blog.csdn.net/ybdesire/article/details/53915093" target="_blank" rel="noopener">SVM理解与参数选择（kernel和C）</a><br>英文版：<a href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/" target="_blank" rel="noopener">Understanding Support Vector Machine algorithm from examples (along with code)</a><br>SVM参数选择：<a href="https://blog.csdn.net/bryan__/article/details/51506801" target="_blank" rel="noopener">SVM参数详解</a></p>
+<h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><p>传统KNN很简单，就是通过欧式距离或者曼哈顿距离，计算要分类点a和周边K个点的距离，然后看这K个点里，最多的数据点属于哪个类别，就把该要分类的点a归到那一类去。<a href="https://blog.csdn.net/qq_36330643/article/details/77532161" target="_blank" rel="noopener">最近邻算法原理详解</a><br><img src="/images/KNN.jpg" width = 40% height = 40% div align=center /></p>
+<p>它还有几个延申：  </p>
+<ul>
+<li><a href="https://chrisalbon.com/machine_learning/nearest_neighbors/radius_based_nearest_neighbor_classifier/" target="_blank" rel="noopener">Radius-based Nearest Neighbor classifier</a>, 不是设K值，而是设一个圆周距离，在该圆里，看哪个类别最多。</li>
+<li><a href="https://www.cnblogs.com/bigmonkey/p/7387943.html" target="_blank" rel="noopener">加权KNN</a> 有时候各个特征对于分类的贡献是不相同的。用$1/d$距离的倒数来做权重，越远的对分类越弱。</li>
+</ul>
+<p>为什么K越小，bias越小，variance越大；而K变大，high bias, low variance?</p>
+<h2 id="Kmeans-无监督学习"><a href="#Kmeans-无监督学习" class="headerlink" title="Kmeans 无监督学习"></a>Kmeans 无监督学习</h2><p>Kmeans是无监督学习聚类算法。</p>
+<ul>
+<li>第一步，随机选几个点作为聚类中心C。</li>
+<li>第二步，计算数据点跟聚类中心C的距离，离哪个点近就分到哪个类。</li>
+<li>第三步，重新计算聚类中心点C，C = 整个簇的平均值。</li>
+<li>第四步，重复第二步和第三步，直到没有数据会变化。</li>
+</ul>
+<p>Kmeans很简单，但很容易陷入局部最优化，跟初始点的选取很有关系。所以产生了Kmeans++算法。<br>假如有要分K个类，第一个点跟Kmeans一样也是随机选取，但N+1的点选取确实根据$D(x)$来选取的。<br>相比Kmeans,Kmeans++多了几步：</p>
+<ol>
+<li>从数据随机选取一个样本作为初始聚类中心$C_1$</li>
+<li>首先计算每个样本与当前已有聚类中心之间的最短距离（即与最近的一个聚类中心的距离），用D(x)表示；接着计算每个样本被选为下一个聚类中心的概率$[\frac{D(x)^2}{\sum_x D(x)^2}]$. 最后，按照轮盘法选出下一个聚类中心。</li>
+<li>重复第2步知道选出K个聚类中心</li>
+<li>然后按照经典的K-means算法的第二步到第四步</li>
+</ol>
+<p>参考：<a href="https://www.cnblogs.com/wang2825/articles/8696830.html" target="_blank" rel="noopener">K-means与K-means++</a></p>
+<h2 id="各个算法的优缺点"><a href="#各个算法的优缺点" class="headerlink" title="各个算法的优缺点"></a>各个算法的优缺点</h2><p>算法的优劣主要看它的误差，一般误差有方差和偏差组成。一个模型越复杂，拟合的越好，偏差会变小，但容易造成过拟合。对小数据，选取的高偏差，低方差的模型比选取高方差，低偏差的模型要好，因为后者会发生过拟合（overfiting）。然而，随着你训练集的增长，模型对于原数据的预测能力就越好，偏差就会降低，此时低偏差/高方差的分类器就会渐渐的表现其优势（因为它们有较低的渐近误差），而高偏差分类器这时已经不足以提供准确的模型了。</p>
+<p><a href="http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/" target="_blank" rel="noopener">Choosing a Machine Learning Classifier</a></p>
+<p><a href="http://www.csuldw.com/2016/02/26/2016-02-26-choosing-a-machine-learning-classifier/index.html" target="_blank" rel="noopener">机器学习算法比较</a></p>
+<p><a href="https://blog.csdn.net/wuzqChom/article/details/75091612" target="_blank" rel="noopener">偏差和方差</a></p>
+</div><div class="tags"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></div><div class="post-nav"><a class="pre" href="/2018/06/28/Ensemble/">Ensemble</a><a class="next" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/06/21/Machine-learning-with-python-4-classical-algorithm/';
+    this.page.identifier = '2018/06/21/Machine-learning-with-python-4-classical-algorithm/';
+    this.page.title = 'Machine learning with python(4)_classical algorithm(持续跟新)';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

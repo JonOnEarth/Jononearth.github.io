@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>Numpy 小抄 | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Numpy 小抄</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Numpy 小抄</h1><div class="post-meta">May 9, 2018<span> | </span><span class="category"><a href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/05/09/Numpy-小抄/" href="/2018/05/09/Numpy-%E5%B0%8F%E6%8A%84/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Numpy小抄"><span class="toc-number">1.</span> <span class="toc-text">Numpy小抄</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#numpy重要性质"><span class="toc-number">2.</span> <span class="toc-text">numpy重要性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcasting"><span class="toc-number">2.1.</span> <span class="toc-text">Broadcasting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-note"><span class="toc-number">3.</span> <span class="toc-text">My note</span></a></li></ol></div></div><div class="post-content"><p>NumPy is the library that gives Python its ability to work with data at speed. Originally, launched in 1995 as ‘Numeric,’ NumPy is the foundation on which many important Python data science libraries are built, including Pandas, SciPy and scikit-learn.</p>
+<p>先给出几个很好的numpy 小抄，以后再整理遇到的一些numpy相关问题：</p>
+<h2 id="Numpy小抄"><a href="#Numpy小抄" class="headerlink" title="Numpy小抄"></a>Numpy小抄</h2><ul>
+<li><p><img src="/images/numpy_%E5%B0%8F%E6%8A%842.jpg" alt="[来源1](https://www.dataquest.io/blog/numpy-cheat-sheet/)"></p>
+</li>
+<li><p><img src="/images/numpy_notebook.png" alt="[来源2：Notebook版](https://github.com/donnemartin/data-science-ipython-notebooks/blob/master/numpy/numpy.ipynb)"></p>
+</li>
+</ul>
+<h2 id="numpy重要性质"><a href="#numpy重要性质" class="headerlink" title="numpy重要性质"></a>numpy重要性质</h2><h3 id="Broadcasting"><a href="#Broadcasting" class="headerlink" title="Broadcasting"></a>Broadcasting</h3><p>就是说矩阵运算的时候， a.shape = (3,2), b.shape=(3,1), a+b 时，b会自动复制成shape = (3,2),进行运算。</p>
+<p>参考： <a href="https://www.coursera.org/learn/neural-networks-deep-learning/notebook/Zh0CU/python-basics-with-numpy-optional" target="_blank" rel="noopener">coursera deeplearning.ai</a>,</p>
+<h2 id="My-note"><a href="#My-note" class="headerlink" title="My note"></a>My note</h2><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">解释</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.around.html#numpy.around" target="_blank" rel="noopener">numpy.round(a, decimals=0, out=None)</a> 与around函数相似</td>
+<td align="left">Round an array to the given number of [decimals].</td>
+<td align="left">np.around([0.37, 1.64], decimals=1)  结果：array([ 0.4,  1.6])</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.floor.html" target="_blank" rel="noopener">np.floor()</a></td>
+<td align="left">返回标量的最大整数</td>
+<td align="left">&gt;&gt;&gt; a = np.array([-1.7, -1.5, -0.2, 0.2, 1.5, 1.7, 2.0])  (&gt;&gt;&gt; np.floor(a) 结果：array([-2., -2., -1.,  0.,  1.,  1.,  2.]))</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.column_stack.html" target="_blank" rel="noopener">np.column_stack((x, y))</a></td>
+<td align="left">把两个1D的array变成一个2D array</td>
+<td align="left">&gt;&gt;&gt; a = np.array((1,2,3)) &gt;&gt;&gt; b = np.array((2,3,4)) &gt;&gt;&gt; np.column_stack((a,b)) 结果：array([[1, 2],[2, 3],[3, 4]])</td>
+</tr>
+<tr>
+<td align="left">numpy.arange(0,9,1)</td>
+<td align="left">表示0到9之间的数，step是1</td>
+<td align="left">输出是0，1，2…到8</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.linspace.html" target="_blank" rel="noopener">np.linspace(start, stop, num,endpoint)</a></td>
+<td align="left">start to stop之间有num个数</td>
+<td align="left">&gt;&gt;&gt; np.linspace(2.0, 3.0, num=5, endpoint=False) out: array([ 2. ,  2.2,  2.4,  2.6,  2.8])</td>
+</tr>
+<tr>
+<td align="left">np.float_()</td>
+<td align="left">list变array, float</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.unique.html" target="_blank" rel="noopener">np.unique()</a></td>
+<td align="left">算array里有多少个count的时候可以用一下</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html" target="_blank" rel="noopener">numpy.random.rand(a,b)</a></td>
+<td align="left">转化成a行b列0,1之间的任意数</td>
+<td align="left">np.random.rand(3,2) out: array([[ 0.14022471,  0.96360618], [ 0.37601032,  0.25528411], [ 0.49313049,  0.94909878]]) #random</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html" target="_blank" rel="noopener">np.sum()</a></td>
+<td align="left">axis=1,一行向量自己里面相加，axis=0,一列里面自己相加</td>
+<td align="left">&gt;&gt;&gt; np.sum([[0, 1], [0, 5]]), np.sum([[0, 1], [0, 5]], axis=0) np.sum([[0, 1], [0, 5]], axis=1) output: 6, array([0,6]), array([1, 5])</td>
+</tr>
+<tr>
+<td align="left"><a href="https://blog.csdn.net/hqh131360239/article/details/79061535" target="_blank" rel="noopener">np.linalg.norm()</a></td>
+<td align="left">求范数,默认2范数，axis=1,一行向量自己范2，axis=0,一列列列向量范2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">np.row_stack()</td>
+<td align="left">矩阵增加行</td>
+<td align="left">a = np.array([[4, 4,], [5, 5]])  c = np.row_stack((a, [8,9]))  output: array([[4,4],[5,5],[8,9]])</td>
+</tr>
+<tr>
+<td align="left">np.column_stack()</td>
+<td align="left">矩阵增加行</td>
+<td align="left">a = np.array([[4, 4,], [5, 5]])  c = np.column_stack((a, [8,9]))  output: array([[4,4,8],[5,5,9])</td>
+</tr>
+<tr>
+<td align="left"><a href="https://jingyan.baidu.com/article/9113f81b2291802b3214c706.html" target="_blank" rel="noopener">np.all()</a></td>
+<td align="left">假如我们想要知道矩阵a和矩阵b中所有对应元素是否相等，我们需要使用all方法</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">np.any()</td>
+<td align="left">假如我们想要知道矩阵a和矩阵b中对应元素是否有一个相等，我们需要使用any方法</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://blog.csdn.net/yangyuwen_yang/article/details/79193770" target="_blank" rel="noopener">np.unique()</a>，<a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.unique.html" target="_blank" rel="noopener">link2</a></td>
+<td align="left">重复的值，取唯一值并且从小到大排列</td>
+<td align="left">a, s= np.unique(A, return_index=True)</td>
+</tr>
+<tr>
+<td align="left"><a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.delete.html" target="_blank" rel="noopener">np.delete(arr,1,axis=0)</a></td>
+<td align="left">axis = 0 mean delete vertically</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.programiz.com/python-programming/assert-statement" target="_blank" rel="noopener">assert(a.shape == (1,5))</a></td>
+<td align="left">Assertions are simply boolean expressions that checks if the conditions return true or not. If it is true, the program does nothing and move to the next line of code. However, if it’s false, the program stops and throws an error.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">numpy.sum(a, axis=None, dtype=None, out=None, keepdims=False)</td>
+<td align="left"><a href="https://stackoverflow.com/questions/39441517/in-numpy-sum-there-is-parameter-called-keepdims-what-does-it-do" target="_blank" rel="noopener">keepdims</a>的重要性</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</div><div class="tags"><a href="/tags/python/">python</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a><a href="/tags/numpy/">numpy</a></div><div class="post-nav"><a class="pre" href="/2018/05/10/Pands%E5%B0%8F%E6%8A%84/">Pandas小抄</a><a class="next" href="/2018/05/08/python-cheatsheet1/">python 小抄</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/05/09/Numpy-小抄/';
+    this.page.identifier = '2018/05/09/Numpy-小抄/';
+    this.page.title = 'Numpy 小抄';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>建站备忘 | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">建站备忘</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">建站备忘</h1><div class="post-meta">Dec 30, 2019<span> | </span><span class="category"><a href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2019/12/30/建站备忘/" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/#disqus_thread"></a><div class="post-content"><h3 id="更新于2020-2"><a href="#更新于2020-2" class="headerlink" title="更新于2020.2"></a>更新于2020.2</h3><p>想换到其他静态博客平台，hugo等。但折腾了很长时间，还是回到了hexo平台，原因是hexo支持比较丰富，而且格式使用hexo的方式写的，改到其他的平台，实在是改起来力不从心。<br>换了电脑，hexo同步是一大问题，待解决这个。<br>要有一颗谦卑的心，以为自己弄过就会搞，很容易忘掉，浪费精力，重复劳动。  </p>
+<h3 id="书写格式备忘markdown"><a href="#书写格式备忘markdown" class="headerlink" title="书写格式备忘markdown"></a>书写格式备忘<a href="https://www.jianshu.com/p/b03a8d7b1719" target="_blank" rel="noopener">markdown</a></h3><h4 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例1</span><br><span class="line">[markdown](https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;b03a8d7b1719)</span><br><span class="line">例2</span><br><span class="line">[百度2][2]&#123;:target&#x3D;&quot;_blank&quot;&#125;</span><br><span class="line">[2]: http:&#x2F;&#x2F;www.baidu.com&#x2F;   &quot;百度二下&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](.&#x2F;01.png &#39;描述&#39;)</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;http:...&quot; width &#x3D; &quot;100&quot; height &#x3D; &quot;100&quot; div align&#x3D;right &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以输出百分比多少，width =20%, height=20%</p>
+<h4 id="插入图片带有链接"><a href="#插入图片带有链接" class="headerlink" title="插入图片带有链接"></a>插入图片带有链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![](.&#x2F;01.png &#39;百度&#39;)](http:&#x2F;&#x2F;www.baidu.com)</span><br></pre></td></tr></table></figure>
+<h4 id="Markdown-在-Atom-中的-preview："><a href="#Markdown-在-Atom-中的-preview：" class="headerlink" title="Markdown 在 Atom 中的 preview："></a>Markdown 在 Atom 中的 preview：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shift + ctrl + m</span><br></pre></td></tr></table></figure>
+<h4 id="markdown创建表格"><a href="#markdown创建表格" class="headerlink" title="markdown创建表格"></a>markdown创建表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|id|name|</span><br><span class="line">|:-|:-|</span><br><span class="line">|1|A1|</span><br><span class="line">|2|A2|</span><br><span class="line">|3|A3|</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">A1</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">A2</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">A3</td>
+</tr>
+</tbody></table>
+<p>表格调整：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 默认左对齐</span><br><span class="line">:- 左对齐</span><br><span class="line">-:右对齐</span><br><span class="line">:-:居中</span><br></pre></td></tr></table></figure>
+
+<p>列宽度调整：<br>-表示列的宽度权重，比如如下，–、-，表示第一列的宽度是第二列的俩倍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|id|name|</span><br><span class="line">|:--|:-|</span><br><span class="line">|1|A1|</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">A1</td>
+</tr>
+</tbody></table>
+<h3 id="markdown-emoji"><a href="#markdown-emoji" class="headerlink" title="markdown emoji"></a>markdown emoji</h3><p>文字已经不能表达我的愤怒了，来个 :rage:</p>
+<p><a href="https://www.cnblogs.com/chenych/p/8623353.html" target="_blank" rel="noopener">Emoji表情</a><br><a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">github emoji</a></p>
+<h3 id="Github和hexo建站-tutorial"><a href="#Github和hexo建站-tutorial" class="headerlink" title="Github和hexo建站 tutorial"></a>Github和hexo建站 tutorial</h3><ul>
+<li><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方中文文档</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/working_harder/article/details/52437783" target="_blank" rel="noopener">github+hexo</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22498474" target="_blank" rel="noopener">Hexo(2)-部署博客及更新博文</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/78467553" target="_blank" rel="noopener">git怎么部署</a></p>
+</li>
+<li><p><a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="noopener">我用的主题</a></p>
+</li>
+</ul>
+<h3 id="安装时的问题："><a href="#安装时的问题：" class="headerlink" title="安装时的问题："></a>安装时的问题：</h3><ul>
+<li><a href="https://blog.csdn.net/qq_21808961/article/details/84476504" target="_blank" rel="noopener">hexo d命令报错 ERROR Deployer not found: git</a><br>npm install hexo-deployer-git –save</li>
+</ul>
+<h4 id="写博文"><a href="#写博文" class="headerlink" title="写博文"></a>写博文</h4><ul>
+<li><p>创建新页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建笔记</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;Hexo教程&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建draft</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt; 这里的layout&#x3D;draft</span><br><span class="line">if you want to pushish the draft</span><br><span class="line">hexo publish draft &quot;title&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><img src="/images/githubhexo1.png" alt="post_title"></p>
+</li>
+<li><p>引用站内文章<br>方法1：markdown 语法插入已有链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[引用文章](http:jononearth&#x2F;categoriesname&#x2F;title)</span><br></pre></td></tr></table></figure>
+<p>方法2：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link 文章文件名（不要后缀） 文章标题（可选） %&#125;</span><br><span class="line">如：</span><br><span class="line">&#123;% post_link Hello-World %&#125;</span><br><span class="line">&#123;% post_link Hello-World 你好世界 %&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="发博文"><a href="#发博文" class="headerlink" title="发博文"></a>发博文</h4><p>在 Git Shell 中进入 Hexo 文件夹，执行下面几条命令，将博客部署到 GitHub 上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">(若要本地预览就先执行 hexo server)</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或者直接用组合</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>快捷命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g &#x3D;&#x3D; hexo generate</span><br><span class="line">hexo d &#x3D;&#x3D; hexo deploy</span><br><span class="line">hexo s &#x3D;&#x3D; hexo server</span><br><span class="line">hexo n &#x3D;&#x3D; hexo new</span><br></pre></td></tr></table></figure>
+
+
+<p>另外还有一些其他方法来发布博文，如 <a href="https://www.zhihu.com/question/27384681/answer/87037317" target="_blank" rel="noopener">hexo-admin插件</a></p>
+<h4 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h4><p><a href="https://blog.csdn.net/sherlockzoom/article/details/43835613" target="_blank" rel="noopener">mathjax + latex</a><br><a href="http://www.codecogs.com/latex/eqneditor.php" target="_blank" rel="noopener">在线转换工具</a></p>
+<p>行间公式用两个 $$ 符号表示，行内用 一个 $ 表示。</p>
+<h4 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src&#x3D;&#39;https:&#x2F;&#x2F;youtu.be&#x2F;Boy3zHVrWB4&#39; type&#x3D;&#39;video&#x2F;mp4&#39; controls&#x3D;&#39;controls&#39;  width&#x3D;&#39;100%&#39; height&#x3D;&#39;100%&#39;&gt;&lt;&#x2F;video&gt;</span><br></pre></td></tr></table></figure>
+<p>or  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;&lt;iframe width&#x3D;&quot;854&quot; height&#x3D;&quot;480&quot; src&#x3D;&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;Boy3zHVrWB4&quot; frameborder&#x3D;&quot;0&quot; allow&#x3D;&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Github和jekyll建站-tutorial"><a href="#Github和jekyll建站-tutorial" class="headerlink" title="Github和jekyll建站 tutorial"></a>Github和jekyll建站 tutorial</h3><p><a href="https://www.jekyll.com.cn/docs/" target="_blank" rel="noopener">jekyll tutorial</a></p>
+<p><a href="https://blog.csdn.net/xudailong_blog/article/details/78762262" target="_blank" rel="noopener">github快速建博客指南</a></p>
+</div><div class="tags"><a href="/tags/%E5%BB%BA%E7%AB%99/">建站</a><a href="/tags/hexo/">hexo</a></div><div class="post-nav"><a class="pre" href="/2020/02/15/hello-world/">Hello World</a><a class="next" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2019/12/30/建站备忘/';
+    this.page.identifier = '2019/12/30/建站备忘/';
+    this.page.title = '建站备忘';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

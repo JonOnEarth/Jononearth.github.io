@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>Data structure and algorithm(1) | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Data structure and algorithm(1)</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Data structure and algorithm(1)</h1><div class="post-meta">Aug 16, 2018<span> | </span><span class="category"><a href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/08/16/Algorithm-1/" href="/2018/08/16/Algorithm-1/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">1.</span> <span class="toc-text">Data Structure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-difference-between-Array-and-list"><span class="toc-number">1.1.</span> <span class="toc-text">The difference between Array and list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linked-lists"><span class="toc-number">1.2.</span> <span class="toc-text">linked lists</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stack"><span class="toc-number">1.3.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Queues"><span class="toc-number">1.4.</span> <span class="toc-text">Queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sets"><span class="toc-number">1.5.</span> <span class="toc-text">sets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maps-dictionary"><span class="toc-number">1.6.</span> <span class="toc-text">Maps(dictionary)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hashing"><span class="toc-number">1.7.</span> <span class="toc-text">Hashing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-Maps"><span class="toc-number">1.8.</span> <span class="toc-text">Hash Maps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-for-String-Keys"><span class="toc-number">1.9.</span> <span class="toc-text">Hash for String Keys</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trees-Data-Structure"><span class="toc-number">2.</span> <span class="toc-text">Trees_Data Structure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-Traversal"><span class="toc-number">2.1.</span> <span class="toc-text">Tree Traversal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binary-search-tree-BST"><span class="toc-number">2.2.</span> <span class="toc-text">Binary search tree(BST)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Heaps"><span class="toc-number">2.3.</span> <span class="toc-text">Heaps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#self-balanced-tree-red-black"><span class="toc-number">2.4.</span> <span class="toc-text">self-balanced tree(red-black)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graphs-Networks"><span class="toc-number">3.</span> <span class="toc-text">Graphs(Networks)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#directions-and-cycles"><span class="toc-number">3.1.</span> <span class="toc-text">directions and cycles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connectivity"><span class="toc-number">3.2.</span> <span class="toc-text">connectivity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#definition"><span class="toc-number">3.2.1.</span> <span class="toc-text">definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-Representations"><span class="toc-number">3.2.2.</span> <span class="toc-text">Graph Representations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-Traversal"><span class="toc-number">3.2.3.</span> <span class="toc-text">Graph Traversal</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Algorithm-Searching-and-Sorting"><span class="toc-number">4.</span> <span class="toc-text">Algorithm_Searching and Sorting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Binary-Search"><span class="toc-number">4.1.</span> <span class="toc-text">Binary Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Recursion"><span class="toc-number">4.2.</span> <span class="toc-text">Recursion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sorting"><span class="toc-number">4.3.</span> <span class="toc-text">Sorting</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bubble-Sort-in-place"><span class="toc-number">4.3.1.</span> <span class="toc-text">bubble Sort(in place)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Merge-Sort"><span class="toc-number">4.3.2.</span> <span class="toc-text">Merge Sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Quick-Sort"><span class="toc-number">4.3.3.</span> <span class="toc-text">Quick Sort</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some-Resources"><span class="toc-number">4.4.</span> <span class="toc-text">some Resources</span></a></li></ol></li></ol></div></div><div class="post-content"><p>Notes from Udacity Data Science Interview Preparation lesson.</p>
+<ul>
+<li>big O Notation<br><a href="http://bigocheatsheet.com/" target="_blank" rel="noopener">http://bigocheatsheet.com/</a></li>
+</ul>
+<h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><h3 id="The-difference-between-Array-and-list"><a href="#The-difference-between-Array-and-list" class="headerlink" title="The difference between Array and list"></a>The difference between Array and list</h3><ul>
+<li>Array has index</li>
+<li>List has order but no indices</li>
+<li>Python list is built as an array</li>
+</ul>
+<h3 id="linked-lists"><a href="#linked-lists" class="headerlink" title="linked lists"></a>linked lists</h3><ul>
+<li>will tell you where is the next list</li>
+<li>the same as array is that store the value information</li>
+<li>the difference with array is that they store the different information. array store the index inforation, and linked list store a reference to the next element in the list.<img src="/images/linked_list.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<p>when coding：<br> it has two parts in one node. one of them is value of linked list(self.value), another is pointer(self.next) which point to next list.<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lass Node():</span><br><span class="line">   __slots__&#x3D;[&#39;_item&#39;,&#39;_next&#39;]    #限定Node实例的属性</span><br><span class="line">   def __init__(self,item):</span><br><span class="line">       self._item&#x3D;item</span><br><span class="line">       self._next&#x3D;None     #Node的指针部分默认指向None</span><br><span class="line">   def getItem(self):</span><br><span class="line">       return self._item</span><br><span class="line">   def getNext(self):</span><br><span class="line">       return self._next</span><br><span class="line">   def setItem(self,newitem):</span><br><span class="line">       self._item&#x3D;newitem</span><br><span class="line">   def setNext(self,newnext):</span><br><span class="line">       self._next&#x3D;newnext</span><br></pre></td></tr></table></figure><br>reference:<br> <a href="http://python.jobbole.com/83953/" target="_blank" rel="noopener">python数据结构——链表的实现</a> <a href="http://www.cnblogs.com/linxiyue/p/3551633.html" target="_blank" rel="noopener">http://www.cnblogs.com/linxiyue/p/3551633.html</a></p>
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><ul>
+<li>like stack pancake, list-based data structure. But different from linked_list and Array</li>
+<li>LIFO: last in first out.</li>
+<li>PUSH:insert； POP：remove</li>
+</ul>
+<h3 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h3><ul>
+<li>FIFO: first in first out; list-based</li>
+<li>dequeues or double-end queues can dequeue and enqueue in both head and tail<img src="/images/queues.png" width = 80% height = 80% div align=center /></li>
+<li>priority queue. dequeue with highest priority(1). if have same priority, dequeue the oldest one.<img src="/images/priority_queue.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<h3 id="sets"><a href="#sets" class="headerlink" title="sets"></a>sets</h3><ul>
+<li>the difference from list is that it don’t have orders, but can’t have repeated elements</li>
+</ul>
+<h3 id="Maps-dictionary"><a href="#Maps-dictionary" class="headerlink" title="Maps(dictionary)"></a>Maps(dictionary)</h3><ul>
+<li>like dictionary. Maps = &lt;key, value&gt;. a group of keys is a set.</li>
+<li>Dictionaries are wonderfully flexible—you can store a wide variety of structures as values. You store another dictionary or a list:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Cities to add:</span><br><span class="line">Bangalore (India, Asia)</span><br><span class="line">Atlanta (USA, North America)</span><br><span class="line">Cairo (Egypt, Africa)</span><br><span class="line">Shanghai (China, Asia)&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">locations &#x3D; &#123;&#39;North America&#39;: &#123;&#39;USA&#39;: [&#39;Mountain View&#39;]&#125;&#125;</span><br><span class="line">locations[&#39;North America&#39;][&#39;USA&#39;].append(&#39;Atlanta&#39;)</span><br><span class="line">locations[&#39;Asia&#39;] &#x3D; &#123;&#39;Inida&#39;:[&#39;Bangalore&#39;]&#125;</span><br><span class="line">locations[&#39;Asia&#39;][&#39;China&#39;]&#x3D; [&#39;Shanghai&#39;]</span><br><span class="line">locations[&#39;Africa&#39;] &#x3D; &#123;&#39;Egypt&#39;: [&#39;Cairo&#39;]&#125;</span><br><span class="line"></span><br><span class="line">for city in sorted(locations[&#39;North America&#39;][&#39;USA&#39;]):</span><br><span class="line">    print city</span><br><span class="line"></span><br><span class="line">m &#x3D; []    </span><br><span class="line">for country, city in locations[&#39;Asia&#39;].iteritems():</span><br><span class="line">    m.append(city[0]+&#39;-&#39;+ country)</span><br><span class="line">for listm in sorted(m):</span><br><span class="line">   print listm</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hashing"><a href="#Hashing" class="headerlink" title="Hashing"></a>Hashing</h3><p>Using a data structure that employs a hash function allows you to look up in constant time.</p>
+<ul>
+<li>using the reminder as index, store this value at this place  <img src="/images/hashing1.png" width = 80% height = 80% div align=center /></li>
+<li>if have collisions, two ways: 1, change hash function; 2, store all the value into one collection, the array will turn to ‘bucket’.  <img src="/images/hashing2.png" width = 60% height = 60% div align=center /></li>
+<li>in bucket, still can apply hash function  <img src="/images/hashing3.png" width = 60% height = 60% div align=center /></li>
+<li>For the load factor, you should divide the number of values by the number of buckets. $Load Factor = Number of Entries / Number of Buckets$<br><a href="https://classroom.udacity.com/courses/ud944/lessons/7118294395/concepts/79336691870923" target="_blank" rel="noopener">https://classroom.udacity.com/courses/ud944/lessons/7118294395/concepts/79336691870923</a><img src="/images/hashing4.png" width = 50% height = 50% div align=center />
+<img src="/images/hashing5.png" width = 50% height = 50% div align=center />
+
+</li>
+</ul>
+<h3 id="Hash-Maps"><a href="#Hash-Maps" class="headerlink" title="Hash Maps"></a>Hash Maps</h3><img src="/images/hash_maps.png" width = 80% height = 80% div align=center />
+- In interview, you will be asked about creating "Hash table" to test your understand hashing. also need to know the upside and downside of a hash function
+
+<h3 id="Hash-for-String-Keys"><a href="#Hash-for-String-Keys" class="headerlink" title="Hash for String Keys"></a>Hash for String Keys</h3><ul>
+<li>string turn into ASCLL, A=65, B=66,C=67</li>
+</ul>
+<img src="/images/string_keys.png" width = 80% height = 80% div align=center />
+- why use 31, it's more likely convention.  
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">example: Hash Value &#x3D; (ASCII Value of First Letter * 100) + ASCII Value of Second Letter</span><br><span class="line">class HashTable(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.table &#x3D; [None]*10000</span><br><span class="line"></span><br><span class="line">    def store(self, string):</span><br><span class="line">        hv &#x3D; self.calculate_hash_value(string)</span><br><span class="line">        if hv !&#x3D; -1:</span><br><span class="line">            if self.table[hv] !&#x3D; None:</span><br><span class="line">                self.table[hv].append(string)</span><br><span class="line">            else:</span><br><span class="line">                self.table[hv] &#x3D; [string]</span><br><span class="line"></span><br><span class="line">    def lookup(self, string):</span><br><span class="line">        hv &#x3D; self.calculate_hash_value(string)</span><br><span class="line">        if hv !&#x3D; -1:</span><br><span class="line">            if self.table[hv] !&#x3D; None:</span><br><span class="line">                if string in self.table[hv]:</span><br><span class="line">                    return hv</span><br><span class="line">        return -1</span><br><span class="line"></span><br><span class="line">    def calculate_hash_value(self, string):</span><br><span class="line">        value &#x3D; ord(string[0])*100 + ord(string[1])</span><br><span class="line">        return value</span><br></pre></td></tr></table></figure>
+
+<h2 id="Trees-Data-Structure"><a href="#Trees-Data-Structure" class="headerlink" title="Trees_Data Structure"></a>Trees_Data Structure</h2><ul>
+<li>tree is an extension of linked-list</li>
+<li>the following figure, different color has its meaning.  <img src="/images/tree.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<h3 id="Tree-Traversal"><a href="#Tree-Traversal" class="headerlink" title="Tree Traversal"></a>Tree Traversal</h3><ul>
+<li><p>DFS(depth first search):</p>
+<ul>
+<li><p>pre-order  </p>
+<img src="/images/DFS_preorder.png" width = 80% height = 80% div align=center /></li>
+<li><p>in-order  </p>
+<img src="/images/DFS_inorder.png" width = 80% height = 80% div align=center /></li>
+<li><p>post-order  (right first)</p>
+<img src="/images/DFS_postorder.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>Q&amp;A: D, F, E, B, C, A</p>
+<img src="/images/tree2.png" width = 80% height = 80% div align=center />
+</li>
+</ul>
+</li>
+<li><p>BFS(Breadth first search): check the same level node first</p>
+</li>
+<li><p>Search and Delete, insert. perfect tree, each node has two child  </p>
+<img src="/images/tree3.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<h3 id="Binary-search-tree-BST"><a href="#Binary-search-tree-BST" class="headerlink" title="Binary search tree(BST)"></a>Binary search tree(BST)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class BinaryTree(object):</span><br><span class="line">    def __init__(self, root):</span><br><span class="line">        self.root &#x3D; Node(root)</span><br><span class="line"></span><br><span class="line">    def search(self, find_val):</span><br><span class="line">        return self.preorder_search(tree.root, find_val)</span><br><span class="line"></span><br><span class="line">    def print_tree(self):</span><br><span class="line">        return self.preorder_print(tree.root, &quot;&quot;)[:-1]</span><br><span class="line"></span><br><span class="line">    def preorder_search(self, start, find_val):</span><br><span class="line">        if start:</span><br><span class="line">            if start.value &#x3D;&#x3D; find_val:</span><br><span class="line">                return True</span><br><span class="line">            else:</span><br><span class="line">                return self.preorder_search(start.left, find_val) or self.preorder_search(start.right, find_val)</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    def preorder_print(self, start, traversal):</span><br><span class="line">        if start:</span><br><span class="line">            traversal +&#x3D; (str(start.value) + &quot;-&quot;)</span><br><span class="line">            traversal &#x3D; self.preorder_print(start.left, traversal)</span><br><span class="line">            traversal &#x3D; self.preorder_print(start.right, traversal)</span><br><span class="line">        return traversal</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>rule to BSTS: right of node is larger than left</p>
+<img src="/images/tree4.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>unbalanced BSTS  </p>
+<img src="/images/tree5.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>apply the rule to BSTS and pre-order Traversal. Search and insert  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class BST(object):</span><br><span class="line">    def __init__(self, root):</span><br><span class="line">        self.root &#x3D; Node(root)</span><br><span class="line"></span><br><span class="line">    def insert(self, new_val):</span><br><span class="line">        self.insert_helper(self.root, new_val)</span><br><span class="line"></span><br><span class="line">    def insert_helper(self, current, new_val):</span><br><span class="line">        if current.value &lt; new_val:</span><br><span class="line">            if current.right:</span><br><span class="line">                self.insert_helper(current.right, new_val)</span><br><span class="line">            else:</span><br><span class="line">                current.right &#x3D; Node(new_val)</span><br><span class="line">        else:</span><br><span class="line">            if current.left:</span><br><span class="line">                self.insert_helper(current.left, new_val)</span><br><span class="line">            else:</span><br><span class="line">                current.left &#x3D; Node(new_val)</span><br><span class="line"></span><br><span class="line">    def search(self, find_val):</span><br><span class="line">        return self.search_helper(self.root, find_val)</span><br><span class="line"></span><br><span class="line">    def search_helper(self, current, find_val):</span><br><span class="line">        if current:</span><br><span class="line">            if current.value &#x3D;&#x3D; find_val:</span><br><span class="line">                return True</span><br><span class="line">            elif current.value &lt; find_val:</span><br><span class="line">                return self.search_helper(current.right, find_val)</span><br><span class="line">            else:</span><br><span class="line">                return self.search_helper(current.left, find_val)</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Heaps"><a href="#Heaps" class="headerlink" title="Heaps"></a>Heaps</h3><ul>
+<li>also a kind of tree has its own rule</li>
+<li>Max heaps and min heaps. max: parent always big than child; min vice versa. <a href="https://www.youtube.com/watch?time_continue=14&v=M3B0UJWS_ag" target="_blank" rel="noopener">link</a><img src="/images/maxheaps.png" width = 80% height = 80% div align=center /></li>
+<li>heaps can have several trees, not like binary</li>
+<li>heaps binary trees search big 0 time is $O(n)$</li>
+<li>heapify: insert in the child leaf first, then compare it to the parent, if bigger then swap their value. The big O time is $O(logn)$<img src="/images/heapify.png" width = 80% height = 80% div align=center /></li>
+<li>heap implementation: heap often store as sorted array. as shown below, array only store value and index, but tree will store bunch of pointers, which mean array save space.<img src="/images/heap2.png" width = 80% height = 80% div align=center />
+<img src="/images/heap3.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<h3 id="self-balanced-tree-red-black"><a href="#self-balanced-tree-red-black" class="headerlink" title="self-balanced tree(red-black)"></a>self-balanced tree(red-black)</h3><img src="/images/self_balanceing.png" width = 80% height = 80% div align=center />
+
+<ul>
+<li><p>definition: minimize the level of tree</p>
+</li>
+<li><p><strong>Red Black-Tree</strong> an extension of Binary tree. 5 rules</p>
+<ul>
+<li>every node is red or black</li>
+<li>Every leaf (NULL) is black. Every node in your tree doesn’t otherwise have two leaves, must have null children(black)</li>
+<li>If a node is red, then both its children are black.</li>
+<li>the root node is black</li>
+<li>Every simple path from a node to a descendant leaf contains the same number of black nodes.  </li>
+</ul>
+<img src="/images/red_black_tree.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<p>still watching:   <a href="https://classroom.udacity.com/courses/ud944/lessons/7122604912/concepts/78867246220923" target="_blank" rel="noopener">https://classroom.udacity.com/courses/ud944/lessons/7122604912/concepts/78867246220923</a><br>  <a href="https://www.youtube.com/watch?v=O5Yl-m0YbVA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=O5Yl-m0YbVA</a></p>
+<h2 id="Graphs-Networks"><a href="#Graphs-Networks" class="headerlink" title="Graphs(Networks)"></a>Graphs(Networks)</h2><img src="/images/graph.png" width = 80% height = 80% div align=center />
+- tree is a type of graph.
+- Node, edge  
+<img src="/images/graph2.png" width = 80% height = 80% div align=center />
+
+<h3 id="directions-and-cycles"><a href="#directions-and-cycles" class="headerlink" title="directions and cycles"></a>directions and cycles</h3><ul>
+<li><p>directions like this figure show</p>
+</li>
+<li><p>avoid graphs has cycles, infinite loop  </p>
+<img src="/images/graph3.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>DAG: directed Acyclic(no cycles) Graph. type show up often</p>
+</li>
+</ul>
+<h3 id="connectivity"><a href="#connectivity" class="headerlink" title="connectivity"></a>connectivity</h3><img src="/images/graph4.png" width = 80% height = 80% div align=center />
+- right seems has more connection than left one.
+- remove one connection in left group, whole group will destoryed(disconnected)
+
+<h4 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h4><ul>
+<li><p>disconnected:<br>Disconnected graphs are very similar whether the graph’s directed or undirected—there is some vertex or group of vertices that have no connection with the rest of the graph.</p>
+</li>
+<li><p>weakly connected:<br>A directed graph is weakly connected when only replacing all of the directed edges with undirected edges can cause it to be connected. Imagine that your graph has several vertices with one outbound edge, meaning an edge that points from it to some other vertex in the graph. There’s no way to reach all of those vertices from any other vertex in the graph, but if those edges were changed to be undirected all vertices would be easily accessible.</p>
+</li>
+<li><p>connected:<br>Here we only use “connected graph” to refer to undirected graphs. In a connected graph, there is some path between one vertex and every other vertex.</p>
+</li>
+<li><p>Strongly Connected:<br>Strongly connected directed graphs must have a path from every node and every other node. So, there must be a path from A to B AND B to A.</p>
+</li>
+</ul>
+<h4 id="Graph-Representations"><a href="#Graph-Representations" class="headerlink" title="Graph Representations"></a>Graph Representations</h4><p>vertex orbject can have a list of edges it’s connected to and vice versa.<br><img src="/images/graph5.png" width = 80% height = 80% div align=center /></p>
+<p>There are other graph represent ways:</p>
+<ul>
+<li><p>Edge list, could be 2D, and 3D</p>
+<img src="/images/graph6.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>Adjacency list, store the node that adjacent to index  </p>
+<img src="/images/graph7.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>Adjacency Matrix, store a matrix, if node 0 connect to node 1, then show 1, otherwise show 0 in matrix.  </p>
+<img src="/images/graph8.png" width = 80% height = 80% div align=center />
+
+</li>
+</ul>
+<p>code from udacity <a href="https://classroom.udacity.com/courses/ud944/lessons/7114284829/concepts/79348548570923" target="_blank" rel="noopener">link</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">class Node(object):</span><br><span class="line">    def __init__(self, value):</span><br><span class="line">        self.value &#x3D; value</span><br><span class="line">        self.edges &#x3D; []</span><br><span class="line"></span><br><span class="line">class Edge(object):</span><br><span class="line">    def __init__(self, value, node_from, node_to):</span><br><span class="line">        self.value &#x3D; value</span><br><span class="line">        self.node_from &#x3D; node_from</span><br><span class="line">        self.node_to &#x3D; node_to</span><br><span class="line"></span><br><span class="line">class Graph(object):</span><br><span class="line">    def __init__(self, nodes&#x3D;[], edges&#x3D;[]):</span><br><span class="line">        self.nodes &#x3D; nodes</span><br><span class="line">        self.edges &#x3D; edges</span><br><span class="line"></span><br><span class="line">    def insert_node(self, new_node_val):</span><br><span class="line">        new_node &#x3D; Node(new_node_val)</span><br><span class="line">        self.nodes.append(new_node)</span><br><span class="line"></span><br><span class="line">    def insert_edge(self, new_edge_val, node_from_val, node_to_val):</span><br><span class="line">        from_found &#x3D; None</span><br><span class="line">        to_found &#x3D; None</span><br><span class="line">        for node in self.nodes:</span><br><span class="line">            if node_from_val &#x3D;&#x3D; node.value:</span><br><span class="line">                from_found &#x3D; node</span><br><span class="line">            if node_to_val &#x3D;&#x3D; node.value:</span><br><span class="line">                to_found &#x3D; node</span><br><span class="line">        if from_found &#x3D;&#x3D; None:</span><br><span class="line">            from_found &#x3D; Node(node_from_val)</span><br><span class="line">            self.nodes.append(from_found)</span><br><span class="line">        if to_found &#x3D;&#x3D; None:</span><br><span class="line">            to_found &#x3D; Node(node_to_val)</span><br><span class="line">            self.nodes.append(to_found)</span><br><span class="line">        new_edge &#x3D; Edge(new_edge_val, from_found, to_found)</span><br><span class="line">        from_found.edges.append(new_edge)</span><br><span class="line">        to_found.edges.append(new_edge)</span><br><span class="line">        self.edges.append(new_edge)</span><br><span class="line"></span><br><span class="line">    def get_edge_list(self):</span><br><span class="line">        edge_list &#x3D; []</span><br><span class="line">        for edge_object in self.edges:</span><br><span class="line">            edge &#x3D; (edge_object.value, edge_object.node_from.value, edge_object.node_to.value)</span><br><span class="line">            edge_list.append(edge)</span><br><span class="line">        return edge_list</span><br><span class="line"></span><br><span class="line">    def get_adjacency_list(self):</span><br><span class="line">        max_index &#x3D; self.find_max_index()</span><br><span class="line">        adjacency_list &#x3D; [None] * (max_index + 1)</span><br><span class="line">        for edge_object in self.edges:</span><br><span class="line">            if adjacency_list[edge_object.node_from.value]:</span><br><span class="line">                adjacency_list[edge_object.node_from.value].append((edge_object.node_to.value, edge_object.value))</span><br><span class="line">            else:</span><br><span class="line">                adjacency_list[edge_object.node_from.value] &#x3D; [(edge_object.node_to.value, edge_object.value)]</span><br><span class="line">        return adjacency_list</span><br><span class="line"></span><br><span class="line">    def get_adjacency_matrix(self):</span><br><span class="line">        max_index &#x3D; self.find_max_index()</span><br><span class="line">        adjacency_matrix &#x3D; [[0 for i in range(max_index + 1)] for j in range(max_index + 1)]</span><br><span class="line">        for edge_object in self.edges:</span><br><span class="line">            adjacency_matrix[edge_object.node_from.value][edge_object.node_to.value] &#x3D; edge_object.value</span><br><span class="line">        return adjacency_matrix</span><br><span class="line"></span><br><span class="line">    def find_max_index(self):</span><br><span class="line">        max_index &#x3D; -1</span><br><span class="line">        if len(self.nodes):</span><br><span class="line">            for node in self.nodes:</span><br><span class="line">                if node.value &gt; max_index:</span><br><span class="line">                    max_index &#x3D; node.value</span><br><span class="line">        return max_index</span><br><span class="line"></span><br><span class="line">graph &#x3D; Graph()</span><br><span class="line">graph.insert_edge(100, 1, 2)</span><br><span class="line">graph.insert_edge(101, 1, 3)</span><br><span class="line">graph.insert_edge(102, 1, 4)</span><br><span class="line">graph.insert_edge(103, 3, 4)</span><br><span class="line"># Should be [(100, 1, 2), (101, 1, 3), (102, 1, 4), (103, 3, 4)]</span><br><span class="line">print graph.get_edge_list()</span><br><span class="line"># Should be [None, [(2, 100), (3, 101), (4, 102)], None, [(4, 103)], None]</span><br><span class="line">print graph.get_adjacency_list()</span><br><span class="line"># Should be [[0, 0, 0, 0, 0], [0, 0, 100, 101, 102], [0, 0, 0, 0, 0], [0, 0, 0, 0, 103], [0, 0, 0, 0, 0]]</span><br><span class="line">print graph.get_adjacency_matrix()</span><br></pre></td></tr></table></figure>
+
+<h4 id="Graph-Traversal"><a href="#Graph-Traversal" class="headerlink" title="Graph Traversal"></a>Graph Traversal</h4><ul>
+<li>just like tree traversal</li>
+<li>DFS(depth first search)</li>
+<li>BFS(breadth first search)</li>
+</ul>
+<h2 id="Algorithm-Searching-and-Sorting"><a href="#Algorithm-Searching-and-Sorting" class="headerlink" title="Algorithm_Searching and Sorting"></a>Algorithm_Searching and Sorting</h2><p>code visualization: <a href="https://visualgo.net/en" target="_blank" rel="noopener">https://visualgo.net/en</a></p>
+<h3 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h3><ul>
+<li><p>efficiency: $O(log(n))$</p>
+<img src="/images/binary_search.png" width = 80% height = 80% div align=center />
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def binarySearch(listData, value):</span><br><span class="line">    low &#x3D; 0</span><br><span class="line">    high &#x3D; len(listData)-1</span><br><span class="line">    while (low &lt;&#x3D; high):</span><br><span class="line">       mid &#x3D; (low+high)&#x2F;2</span><br><span class="line">       if (listData[mid] &#x3D; value):</span><br><span class="line">           return mid</span><br><span class="line">       elif(listData[mid] &lt; value):</span><br><span class="line">          low &#x3D; mid+1</span><br><span class="line">       else:</span><br><span class="line">          high &#x3D; mid-1</span><br><span class="line">    return -1</span><br></pre></td></tr></table></figure>
+<p>Resource: <a href="https://www.cs.usfca.edu/~galles/visualization/Search.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/Search.html</a></p>
+</li>
+</ul>
+<h3 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h3><ul>
+<li>1, call it self; 2, base case(get out the loop); 3, alter the input parament<img src="/images/recursion.png" width = 80% height = 80% div align=center />
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">the Fibonacci Sequence.</span><br><span class="line">def get_fib(position):</span><br><span class="line">    if position &#x3D;&#x3D; 0 or position &#x3D;&#x3D; 1:</span><br><span class="line">        return position</span><br><span class="line">    return get_fib(position - 1) + get_fib(position - 2)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><ul>
+<li>in plce or not, in place: lest space; not: lest time. Tradeoff</li>
+</ul>
+<h4 id="bubble-Sort-in-place"><a href="#bubble-Sort-in-place" class="headerlink" title="bubble Sort(in place)"></a>bubble Sort(in place)</h4><ul>
+<li><p>Big O is $(n-1)(n-1)=n^2$, best case is $O(n)$, the array is already sorted.</p>
+<img src="/images/Bubble_sort.png" width = 80% height = 80% div align=center />
+
+<p>reference: <a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bubble_sort</a></p>
+</li>
+</ul>
+<h4 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h4><ul>
+<li><p>divide the arrray into one by one, then combine every two element except the first element. Then the combined two element compare first, then compare to others just as following images.  </p>
+<img src="/images/merge_sort1.png" width = 80% height = 80% div align=center />
+<img src="/images/merge_sort2.png" width = 80% height = 80% div align=center />
+</li>
+<li><p>Merge sort efficiency: $O(n*logn)$  </p>
+<img src="/images/merge_sort3.png" width = 60% height = 60% div align=center />
+<img src="/images/merge_sort4.png" width = 60% height = 60% div align=center />
+<img src="/images/merge_sort5.png" width = 60% height = 60% div align=center />
+
+</li>
+</ul>
+<h4 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h4><ul>
+<li>random choose one of element, then compare and move as following figure show.  <img src="/images/quick_sort.png" width = 60% height = 60% div align=center />
+<img src="/images/quick_sort2.png" width = 60% height = 60% div align=center />
+- efficiency: the worst case is O(n^2), the average and the best case is $O(nlogn)$
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for each (unsorted) partition</span><br><span class="line">set first element as pivot</span><br><span class="line">   storeIndex &#x3D; pivotIndex + 1</span><br><span class="line">   for i &#x3D; pivotIndex + 1 to rightmostIndex</span><br><span class="line">    if element[i] &lt; element[pivot]</span><br><span class="line">      swap(i, storeIndex); storeIndex++</span><br><span class="line">  swap(pivot, storeIndex - 1)</span><br></pre></td></tr></table></figure>
+
+<p>reference: <a href="http://visualgo.net/en/sorting/" target="_blank" rel="noopener">http://visualgo.net/en/sorting/</a></p>
+<h3 id="some-Resources"><a href="#some-Resources" class="headerlink" title="some Resources"></a>some Resources</h3><p><a href="http://python.jobbole.com/87440/" target="_blank" rel="noopener">常用查找数据结构及算法（Python实现)</a></p>
+</div><div class="tags"><a href="/tags/code/">code</a><a href="/tags/Data-structure/">Data structure</a><a href="/tags/algorithm/">algorithm</a></div><div class="post-nav"><a class="pre" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a><a class="next" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/08/16/Algorithm-1/';
+    this.page.identifier = '2018/08/16/Algorithm-1/';
+    this.page.title = 'Data structure and algorithm(1)';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

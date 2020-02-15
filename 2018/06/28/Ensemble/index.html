@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>Ensemble | JonOnEarth</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Ensemble</h1><a id="logo" href="/.">JonOnEarth</a><p class="description">加油中国</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/DailyNote/"><i class="fa fa-user"> DailyNote</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Ensemble</h1><div class="post-meta">Jun 28, 2018<span> | </span><span class="category"><a href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a class="disqus-comment-count" data-disqus-identifier="2018/06/28/Ensemble/" href="/2018/06/28/Ensemble/#disqus_thread"></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bagging"><span class="toc-number">1.</span> <span class="toc-text">Bagging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boosting"><span class="toc-number">2.</span> <span class="toc-text">Boosting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stacking-amp-blending"><span class="toc-number">3.</span> <span class="toc-text">Stacking&amp;blending</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解"><span class="toc-number">3.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误认知"><span class="toc-number">3.2.</span> <span class="toc-text">错误认知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正确认知"><span class="toc-number">3.3.</span> <span class="toc-text">正确认知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多维数据的处理办法"><span class="toc-number">3.4.</span> <span class="toc-text">多维数据的处理办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一"><span class="toc-number">3.4.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二（reshape"><span class="toc-number">3.4.2.</span> <span class="toc-text">方法二（reshape)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources"><span class="toc-number">4.</span> <span class="toc-text">Resources:</span></a></li></ol></div></div><div class="post-content"><p>Ensembel(集成学习)是一个简单，但非常有效的算法，在各大kaggle竞赛中，获得很高排名的，很多都应用了ensemble方法。这里是对ensemble learning 进行优秀资源的整理，便于以后查看。</p>
+<p>了解集成学习可以从这篇blog开始：<br><a href="https://blog.csdn.net/qq_36330643/article/details/77621232" target="_blank" rel="noopener">集成学习(ensemble learning)原理详解</a></p>
+<p>常见的Ensemble方法有这2种：Bagging and boosting。还有现在越来越多的stacking and blending。</p>
+<h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>Bagging 算法如下图，通过随机采样训练集，进行训练，采集T个训练集，就训练T个弱学习器。然后通过一定的结合策略，如取平均，或者vote等形式变成一个强学习器。采集训练集时，是有放回的采集。<br><img src="/images/bagging.png" width = 80% height = 80% div align=center /></p>
+<h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><p>从图中可以看出，Boosting算法的工作机制是首先从训练集用初始权重训练出一个弱学习器1，根据弱学习的学习误差率表现来更新训练样本的权重，使得之前弱学习器1学习误差率高的训练样本点的权重变高，使得这些误差率高的点在后面的弱学习器2中得到更多的重视。然后基于调整权重后的训练集来训练弱学习器2.，如此重复进行，直到弱学习器数达到事先指定的数目T，最终将这T个弱学习器通过集合策略进行整合，得到最终的强学习器。</p>
+<p>Boosting系列算法里最著名算法主要有AdaBoost算法和提升树(boosting tree)系列算法。提升树系列算法里面应用最广泛的是梯度提升树(<a href="https://www.quora.com/What-is-an-intuitive-explanation-of-Gradient-Boosting" target="_blank" rel="noopener">Gradient Boosting Tree,quora</a>)。AdaBoost和提升树算法的原理在后面的文章中会专门来讲。From: <a href="https://blog.csdn.net/qq_36330643/article/details/77621232" target="_blank" rel="noopener">link</a></p>
+<img src="/images/boosting.png" width = 80% height = 80% div align=center />
+
+<p>原理解释：</p>
+<iframe width="754" height="400" src="https://www.youtube.com/embed/fecp5nmetws" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="754" height="400" src="https://www.youtube.com/embed/1GxscvKU2Ic" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<h2 id="Stacking-amp-blending"><a href="#Stacking-amp-blending" class="headerlink" title="Stacking&amp;blending"></a>Stacking&amp;blending</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>数据比赛大杀器—-模型融合(stacking&amp;blending)<br><a href="https://blog.csdn.net/qq_18916311/article/details/78557722" target="_blank" rel="noopener">大话机器学习之STACKing,一个让诸葛亮都吃瘪的神技</a></p>
+<img src="/images/stacking1.png" width = 80% height = 80% div align=center />
+
+<h3 id="错误认知"><a href="#错误认知" class="headerlink" title="错误认知"></a>错误认知</h3><p>研究了stack技能有一阵子，查到的资料和代码基本上都是<a href="https://zhuanlan.zhihu.com/p/25836678" target="_blank" rel="noopener">这样的</a>。里面给的图如下图</p>
+<img src="/images/stacking2.jpg" width = 100% height = 100% div align=center />
+
+<p>看他的代码怎么都不能理解。KFold，cross-validation不是应该一个model就要训练了5次吗？为什么图中是用<strong>一个</strong>model来训练<strong>一个</strong>Fold集，而代码中是<strong>每个</strong>model都要训练<strong>每个</strong>fold集。</p>
+<p>所以大部分转载或者写的stack方法都是错误的？不一定，有可能是没注意，有可能他们理解方式不一样。可惜对新手的我们很具有误导性啊。下文的中的作者就遇到跟我一样的情况。</p>
+<h3 id="正确认知"><a href="#正确认知" class="headerlink" title="正确认知"></a>正确认知</h3><p>感谢<a href="https://zhuanlan.zhihu.com/p/26890738" target="_blank" rel="noopener">这篇文章</a>的作者跟我有一样的疑虑,正确的图应该是下面这样的。</p>
+<img src="/images/stacking3.jpg" width = 100% height = 100% div align=center />
+
+<p>对于每一轮的 5-fold，Model 1都要做满5次的训练和预测, 之后的得到第一层的预测集P1，<br>model 2做满5次训练和预测，预测的集合是P2，once again, P3, P4, P5。 [P1,P2,P3,P4,P5]作为第二层训练集的input part. output part仍然是整个train set的label.</p>
+<p>testset 在model 1中，每一次的训练就预测一次，总共有[T1,T2,T3,T4,T5],我们这时候后，取 $mean[T1,T2,T3,T4,T5]$ 作为我们下一层的测试集 t1，同样道理，model 2时，得到t2,….第二层的测试集就是[t1,t2,t3,t4,t5]，label仍然时整个test set的label.</p>
+<p>附上该作者的代码解释：<br><img src="/images/stacking4.jpg" width = 100% height = 100% div align=center /></p>
+<h3 id="多维数据的处理办法"><a href="#多维数据的处理办法" class="headerlink" title="多维数据的处理办法"></a>多维数据的处理办法</h3><p>以及我自己项目的部分代码。我的项目label值是一个二维的坐标，所以情况相比一维要复杂的多。在存储第二层的数据时，花了很多力气。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import KFold</span><br><span class="line">kf &#x3D; KFold(n_splits&#x3D;5, random_state&#x3D;2018)</span><br><span class="line"></span><br><span class="line">def get_oof(clf, X_train, y_train, X_test):</span><br><span class="line"></span><br><span class="line">    blend_train &#x3D; np.zeros((y_train.shape[0],2))  # 二维label值</span><br><span class="line">    blend_test &#x3D; np.zeros((X_test.shape[0],2))</span><br><span class="line">    blend_test_skf &#x3D; np.zeros((X_test.shape[0],2,5)) # 5是因为有5次训练</span><br><span class="line"></span><br><span class="line">    for i, (train_index, test_index) in enumerate(list(kf.split(X_train))):</span><br><span class="line">        print(&quot;Fold&quot;, i)   </span><br><span class="line"></span><br><span class="line">        kf_X_train &#x3D; X_train[train_index]</span><br><span class="line">        kf_y_train &#x3D; y_train[train_index]</span><br><span class="line">        kf_X_test &#x3D; X_train[test_index]</span><br><span class="line">        kf_y_test &#x3D; y_train[test_index]</span><br><span class="line"></span><br><span class="line">        model &#x3D; clf(kf_X_train,kf_y_train)</span><br><span class="line"></span><br><span class="line">        blend_train[test_index]&#x3D;model.predict(kf_X_test)  #</span><br><span class="line"></span><br><span class="line">        blend_test_skf[:,:,i] &#x3D; model.predict(X_test)   #</span><br><span class="line"></span><br><span class="line">    blend_test[:,:]&#x3D;blend_test_skf.mean(axis&#x3D;2)</span><br><span class="line">    return blend_train, blend_test</span><br></pre></td></tr></table></figure>
+
+<p>之后需要把P1,P2,P3,P4,P5给整合到表格中，因为P本身是坐标，2维的。就像这个样子。</p>
+<table>
+<thead>
+<tr>
+<th align="left">P1</th>
+<th align="left">P2</th>
+<th align="left">P3</th>
+<th align="left">P4</th>
+<th align="left">P5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">(34,45)</td>
+<td align="left">(22,44)</td>
+<td align="left">(27,56)</td>
+<td align="left">(43,56)</td>
+<td align="left">(12,34)</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+</tr>
+</tbody></table>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>跟我们处理的一维数据很不一样。首先怎么把P1,P2…组合起来就是个问题。用np.column_stack? 不行，那个函数只能表示一维。我们可以设置新的3D矩阵</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train &#x3D; np.zeros((len(p1),2,5)),</span><br><span class="line">train[:,:,0] &#x3D; P1</span><br><span class="line">train[:,:,1] &#x3D; P2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>同样的道理，得到的 test的三维数据。</p>
+<p>怎么来训练呢。一般的算法都是二维数据，当然也有一些算法是支持多维的，如KNN, decisiontree， extratree(看到有这样说的，但我还没尝试过，KNN试过可以)。</p>
+<h4 id="方法二（reshape"><a href="#方法二（reshape" class="headerlink" title="方法二（reshape)"></a>方法二（reshape)</h4><p>利用reshape函数，把二维变1维, x_coordinate 对应 X_label, y_coordinate 对顶Y_label。转化成1维的情况，就很方便了。利用<code>np.column_stack</code>组合5个model得到的数据集。然后进行有监督训练，之后也可以再处理转化成二维的数组（x_coordinate，y_coordinate）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def reshaped(predict):</span><br><span class="line">    size &#x3D; predict.shape[0]</span><br><span class="line">    j &#x3D; predict.reshape((2*size, 1))</span><br><span class="line">    return j</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources:"></a>Resources:</h2><p><a href="https://zhuanlan.zhihu.com/p/26890738" target="_blank" rel="noopener">Kaggle机器学习之模型融合（stacking）心得</a></p>
+<p><a href="https://blog.csdn.net/shine19930820/article/details/75209021" target="_blank" rel="noopener">Ensemble Learning-模型融合-Python实现</a></p>
+<p><a href="https://mlwave.com/kaggle-ensembling-guide/" target="_blank" rel="noopener">KAGGLE ENSEMBLING GUIDE</a></p>
+<p><a href="https://blog.csdn.net/u014114990/article/details/50819948" target="_blank" rel="noopener">总结Kaggle-Ensemble-Guide</a></p>
+<p><a href="https://github.com/emanuele/kaggle_pbr/blob/master/blend.py#L68" target="_blank" rel="noopener">github上一个stacking代码</a></p>
+</div><div class="tags"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a href="/tags/ensmeble/">ensmeble</a></div><div class="post-nav"><a class="pre" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a><a class="next" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jononearth.com/2018/06/28/Ensemble/';
+    this.page.identifier = '2018/06/28/Ensemble/';
+    this.page.title = 'Ensemble';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//jononearth.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//jononearth.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://jononearth.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/Data-structure/" style="font-size: 15px;">Data structure</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A0%E8%B6%A3/" style="font-size: 15px;">生活无趣</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/tags/ensmeble/" style="font-size: 15px;">ensmeble</a> <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" style="font-size: 15px;">经典算法</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pandas/" style="font-size: 15px;">pandas</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 15px;">数据科学</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 15px;">建站</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">面试题</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E8%AF%9D%E8%A5%BF%E6%B8%B8/">大话西游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E6%A2%B0%E5%85%AC%E6%95%8C/">机械公敌</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">极客时间</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD/">黑客帝国</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/15/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98/">建站备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/01/2019%E6%96%B0%E5%B9%B4flag/">2019新年flag</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9/">机器学习知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Algorithm-1/">Data structure and algorithm(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/10/%E7%9B%90%E6%B9%96%E5%88%B0%E9%BB%84%E7%9F%B36%E5%A4%A9%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5/">盐湖到黄石6天不完全攻略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/28/Ensemble/">Ensemble</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/Machine-learning-with-python-4-classical-algorithm/">Machine learning with python(4)_classical algorithm(持续跟新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/machine-learning-with-python-3/">machine learning with python(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/29/Deep-Learning-2/">Deep Learning(2)</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//jononearth.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">JonOnEarth.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
